@@ -1,10 +1,15 @@
+import headerLogo from "./images/header.svg";
+import editpProfileImageIcon from "./images/edit-profile-icon.svg";
+import editpProfileIcon from "./images/button-edit.svg";
+import addCardIcon from "./images/plus_sign.svg";
+
 function App() {
   return (
     <body className="page">
       <header className="header">
         <img
           className="header__image"
-          src="./images/header.svg"
+          src={headerLogo}
           alt="The
   project's title"
         />
@@ -19,7 +24,7 @@ function App() {
               <div className="profile__change-image-button-hide">
                 <button type="button" className="profile__change-image-button">
                   <img
-                    src="./images/edit-profile-icon.svg"
+                    src={editpProfileImageIcon}
                     alt="A vector image of a pen inside the profile image"
                     className="profile__change-image-icon"
                   />
@@ -30,7 +35,7 @@ function App() {
               <h1 className="profile__title">Cousteau</h1>
               <button type="button" className="profile__edit-button">
                 <img
-                  src="./images/button-edit.svg"
+                  src={editpProfileIcon}
                   alt="A vector image of a pen inside the edit button"
                   className="profile__edit-icon"
                 />
@@ -40,7 +45,7 @@ function App() {
           </div>
           <button type="button" className="profile__add-button">
             <img
-              src="./images/plus_sign.svg"
+              src={addCardIcon}
               alt="An image of a plus sign inside the add button"
               className="profile__add-icon"
             />
