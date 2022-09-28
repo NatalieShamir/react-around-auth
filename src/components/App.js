@@ -1,19 +1,12 @@
-import headerLogo from "./images/header.svg";
-import editpProfileImageIcon from "./images/edit-profile-icon.svg";
-import editpProfileIcon from "./images/button-edit.svg";
-import addCardIcon from "./images/plus_sign.svg";
+import editpProfileImageIcon from "../images/edit-profile-icon.svg";
+import editpProfileIcon from "../images/button-edit.svg";
+import addCardIcon from "../images/plus_sign.svg";
+import Header from "./Header";
 
 function App() {
   return (
     <body className="page">
-      <header className="header">
-        <img
-          className="header__image"
-          src={headerLogo}
-          alt="The
-  project's title"
-        />
-      </header>
+      <Header />
       <main className="content">
         <section className="profile">
           <div className="profile__user">
