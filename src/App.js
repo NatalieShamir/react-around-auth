@@ -27,7 +27,7 @@ function App() {
               </div>
             </div>
             <div className="profile__info">
-              <h1 className="profile__title"></h1>
+              <h1 className="profile__title">Cousteau</h1>
               <button type="button" className="profile__edit-button">
                 <img
                   src="./images/button-edit.svg"
@@ -35,7 +35,7 @@ function App() {
                   className="profile__edit-icon"
                 />
               </button>
-              <p className="profile__subtitle"></p>
+              <p className="profile__subtitle">Explorer</p>
             </div>
           </div>
           <button type="button" className="profile__add-button">
