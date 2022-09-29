@@ -1,6 +1,6 @@
 import headerLogo from "../images/header.svg";
 
-function Header(props) {
+function Header() {
   return (
     <header className="header">
       <img
