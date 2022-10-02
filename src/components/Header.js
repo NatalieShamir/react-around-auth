@@ -1,6 +1,6 @@
 import headerLogo from "../images/header.svg";
 
-function Header() {
+export default function Header() {
   return (
     <header className="header">
       <img
@@ -12,5 +12,3 @@ project's title"
     </header>
   );
 }
-
-export default Header;

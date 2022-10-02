@@ -2,7 +2,22 @@ import editpProfileImageIcon from "../images/edit-profile-icon.svg";
 import editpProfileIcon from "../images/button-edit.svg";
 import addCardIcon from "../images/plus_sign.svg";
 
-function Main() {
+export default function Main() {
+  function handleEditAvatarClick() {
+    const editAvatarClick = document.querySelector(".popup_type_avatar-change");
+    editAvatarClick.classList.add("popup_open");
+  }
+
+  function handleEditProfileClick() {
+    const editProfileClick = document.querySelector(".popup_type_edit-profile");
+    editProfileClick.classList.add("popup_open");
+  }
+
+  function handleAddPlaceClick() {
+    const addPlaceClick = document.querySelector(".popup_type_add-card");
+    addPlaceClick.classList.add("popup_open");
+  }
+
   return (
     <main className="content">
       <section className="profile">
@@ -12,7 +27,11 @@ function Main() {
             title="An image of the French oceanographer- Jacques Cousteau"
           >
             <div className="profile__change-image-button-hide">
-              <button type="button" className="profile__change-image-button">
+              <button
+                onClick={handleEditAvatarClick}
+                type="button"
+                className="profile__change-image-button"
+              >
                 <img
                   src={editpProfileImageIcon}
                   alt="A vector image of a pen inside the profile image"
@@ -23,7 +42,11 @@ function Main() {
           </div>
           <div className="profile__info">
             <h1 className="profile__title">Cousteau</h1>
-            <button type="button" className="profile__edit-button">
+            <button
+              onClick={handleEditProfileClick}
+              type="button"
+              className="profile__edit-button"
+            >
               <img
                 src={editpProfileIcon}
                 alt="A vector image of a pen inside the edit button"
@@ -33,7 +56,11 @@ function Main() {
             <p className="profile__subtitle">Explorer</p>
           </div>
         </div>
-        <button type="button" className="profile__add-button">
+        <button
+          onClick={handleAddPlaceClick}
+          type="button"
+          className="profile__add-button"
+        >
           <img
             src={addCardIcon}
             alt="An image of a plus sign inside the add button"
@@ -47,5 +74,3 @@ function Main() {
     </main>
   );
 }
-
-export default Main;

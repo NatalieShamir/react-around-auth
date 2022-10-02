@@ -1,4 +1,4 @@
-export function ImagePopup() {
+export default function ImagePopup() {
   <div className="popup popup_type_preview">
     <div className="popup__container popup__container_content_preview">
       <figure className="popup__image-content">
