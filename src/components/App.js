@@ -5,10 +5,29 @@ import ImagePopup from "./ImagePopup";
 import PopupWithForm from "./PopupWithForm";
 
 function App() {
+  function handleEditAvatarClick() {
+    const editAvatarClick = document.querySelector(".popup_type_avatar-change");
+    editAvatarClick.classList.add("popup_open");
+  }
+
+  function handleEditProfileClick() {
+    const editProfileClick = document.querySelector(".popup_type_edit-profile");
+    editProfileClick.classList.add("popup_open");
+  }
+
+  function handleAddPlaceClick() {
+    const addPlaceClick = document.querySelector(".popup_type_add-card");
+    addPlaceClick.classList.add("popup_open");
+  }
+
   return (
     <body className="page">
       <Header />
-      <Main />
+      <Main
+        onEditProfileClick={handleEditProfileClick}
+        onAddPlaceClick={handleAddPlaceClick}
+        onEditAvatarClick={handleEditAvatarClick}
+      />
       <Footer />
       <PopupWithForm name="edit-profile" title="Edit profile">
         {" "}

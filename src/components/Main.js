@@ -2,22 +2,7 @@ import editpProfileImageIcon from "../images/edit-profile-icon.svg";
 import editpProfileIcon from "../images/button-edit.svg";
 import addCardIcon from "../images/plus_sign.svg";
 
-export default function Main() {
-  function handleEditAvatarClick() {
-    const editAvatarClick = document.querySelector(".popup_type_avatar-change");
-    editAvatarClick.classList.add("popup_open");
-  }
-
-  function handleEditProfileClick() {
-    const editProfileClick = document.querySelector(".popup_type_edit-profile");
-    editProfileClick.classList.add("popup_open");
-  }
-
-  function handleAddPlaceClick() {
-    const addPlaceClick = document.querySelector(".popup_type_add-card");
-    addPlaceClick.classList.add("popup_open");
-  }
-
+export default function Main(props) {
   return (
     <main className="content">
       <section className="profile">
@@ -28,7 +13,7 @@ export default function Main() {
           >
             <div className="profile__change-image-button-hide">
               <button
-                onClick={handleEditAvatarClick}
+                onClick={props.onEditAvatarClick}
                 type="button"
                 className="profile__change-image-button"
               >
@@ -43,7 +28,7 @@ export default function Main() {
           <div className="profile__info">
             <h1 className="profile__title">Cousteau</h1>
             <button
-              onClick={handleEditProfileClick}
+              onClick={props.onEditProfileClick}
               type="button"
               className="profile__edit-button"
             >
@@ -57,7 +42,7 @@ export default function Main() {
           </div>
         </div>
         <button
-          onClick={handleAddPlaceClick}
+          onClick={props.onAddPlaceClick}
           type="button"
           className="profile__add-button"
         >
