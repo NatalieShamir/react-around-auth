@@ -4,20 +4,32 @@ import Footer from "./Footer";
 import ImagePopup from "./ImagePopup";
 import PopupWithForm from "./PopupWithForm";
 
+let isClicked = false;
+
 function App() {
   function handleEditAvatarClick() {
-    const editAvatarClick = document.querySelector(".popup_type_avatar-change");
-    editAvatarClick.classList.add("popup_open");
+    const isEditAvatarPopupOpen = document.querySelector(
+      ".popup_type_avatar-change"
+    );
+    isEditAvatarPopupOpen.addEventListener("click", () => {
+      isClicked = true;
+    });
   }
 
   function handleEditProfileClick() {
-    const editProfileClick = document.querySelector(".popup_type_edit-profile");
-    editProfileClick.classList.add("popup_open");
+    const isEditProfilePopupOpen = document.querySelector(
+      ".popup_type_edit-profile"
+    );
+    isEditProfilePopupOpen.addEventListener("click", () => {
+      isClicked = true;
+    });
   }
 
   function handleAddPlaceClick() {
-    const addPlaceClick = document.querySelector(".popup_type_add-card");
-    addPlaceClick.classList.add("popup_open");
+    const isAddPlacePopupOpen = document.querySelector(".popup_type_add-card");
+    isAddPlacePopupOpen.addEventListener("click", () => {
+      isClicked = true;
+    });
   }
 
   return (
