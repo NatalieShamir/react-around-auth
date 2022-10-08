@@ -4,7 +4,7 @@ import Footer from "./Footer";
 import ImagePopup from "./ImagePopup";
 import PopupWithForm from "./PopupWithForm";
 
-let isClicked = false;
+let isOpen = false;
 
 function App() {
   function handleEditAvatarClick() {
@@ -12,7 +12,7 @@ function App() {
       ".popup_type_avatar-change"
     );
     isEditAvatarPopupOpen.addEventListener("click", () => {
-      isClicked = true;
+      isOpen = true;
     });
   }
 
@@ -21,14 +21,14 @@ function App() {
       ".popup_type_edit-profile"
     );
     isEditProfilePopupOpen.addEventListener("click", () => {
-      isClicked = true;
+      isOpen = true;
     });
   }
 
   function handleAddPlaceClick() {
     const isAddPlacePopupOpen = document.querySelector(".popup_type_add-card");
     isAddPlacePopupOpen.addEventListener("click", () => {
-      isClicked = true;
+      isOpen = true;
     });
   }
 
