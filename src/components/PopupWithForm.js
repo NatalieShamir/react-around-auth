@@ -3,7 +3,11 @@ let isOpen = false;
 export default function PopupWithForm(props) {
   return (
     <>
-      <div className={`popup popup_type_${props.name}`}>
+      <div
+        className={`${`popup popup_type_${props.name}`} ${
+          isOpen ? "popup_open" : ""
+        }`}
+      >
         <div className="popup__container">
           <button
             type="button"
@@ -16,7 +20,6 @@ export default function PopupWithForm(props) {
           </form>
         </div>
       </div>
-      <div className={isOpen ? "popup_open" : ""}></div>
     </>
   );
 }
