@@ -1,8 +1,13 @@
 import editpProfileImageIcon from "../images/edit-profile-icon.svg";
 import editpProfileIcon from "../images/button-edit.svg";
 import addCardIcon from "../images/plus_sign.svg";
+import React, { useState } from "react";
 
 export default function Main(props) {
+  const [userName, setUserName] = React.useState("");
+  const [userDescription, setUserDescription] = React.useState("");
+  const [userAvatar, setUserAvatar] = React.useState("");
+
   return (
     <main className="content">
       <section className="profile">
@@ -11,6 +16,7 @@ export default function Main(props) {
             className="profile__image"
             title="An image of the French oceanographer- Jacques Cousteau"
           >
+            {userAvatar}
             <div className="profile__change-image-button-hide">
               <button
                 onClick={props.onEditAvatarClick}
@@ -26,7 +32,7 @@ export default function Main(props) {
             </div>
           </div>
           <div className="profile__info">
-            <h1 className="profile__title">Cousteau</h1>
+            <h1 className="profile__title">{userName}</h1>
             <button
               onClick={props.onEditProfileClick}
               type="button"
@@ -38,7 +44,7 @@ export default function Main(props) {
                 className="profile__edit-icon"
               />
             </button>
-            <p className="profile__subtitle">Explorer</p>
+            <p className="profile__subtitle">{userDescription}</p>
           </div>
         </div>
         <button
