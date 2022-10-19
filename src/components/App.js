@@ -2,34 +2,32 @@ import Header from "./Header";
 import Main from "./Main";
 import Footer from "./Footer";
 import ImagePopup from "./ImagePopup";
-import PopupWithForm from "./PopupWithForm";
-
-let isOpen = false;
+import { PopupWithForm } from "./PopupWithForm";
+import React, { useState } from "react";
 
 function App() {
+  const [isEditAvatarPopupOpen, setisEditAvatarPopupOpen] =
+    React.useState(false);
+  const [isEditProfilePopupOpen, setisEditProfilePopupOpen] =
+    React.useState(false);
+  const [isAddPlacePopupOpen, setisAddPlacePopupOpen] = React.useState(false);
+
   function handleEditAvatarClick() {
-    const isEditAvatarPopupOpen = document.querySelector(
-      ".popup_type_avatar-change"
-    );
-    isEditAvatarPopupOpen.addEventListener("click", () => {
-      isOpen = true;
-    });
+    setisEditAvatarPopupOpen(true);
   }
 
   function handleEditProfileClick() {
-    const isEditProfilePopupOpen = document.querySelector(
-      ".popup_type_edit-profile"
-    );
-    isEditProfilePopupOpen.addEventListener("click", () => {
-      isOpen = true;
-    });
+    setisEditProfilePopupOpen(true);
   }
 
   function handleAddPlaceClick() {
-    const isAddPlacePopupOpen = document.querySelector(".popup_type_add-card");
-    isAddPlacePopupOpen.addEventListener("click", () => {
-      isOpen = true;
-    });
+    setisAddPlacePopupOpen(true);
+  }
+
+  function closeAllPopups() {
+    setisEditAvatarPopupOpen(false);
+    setisEditProfilePopupOpen(false);
+    setisAddPlacePopupOpen(false);
   }
 
   return (
@@ -41,7 +39,12 @@ function App() {
         onEditAvatarClick={handleEditAvatarClick}
       />
       <Footer />
-      <PopupWithForm name="edit-profile" title="Edit profile">
+      <PopupWithForm
+        name="edit-profile"
+        title="Edit profile"
+        isOpen={isEditProfilePopupOpen}
+        onClose={closeAllPopups}
+      >
         {" "}
         <fieldset class="popup__form-fieldset">
           <label for="name" class="popup__form-label"></label>
@@ -77,7 +80,12 @@ function App() {
           </button>
         </fieldset>
       </PopupWithForm>
-      <PopupWithForm name="add-card" title="New Place">
+      <PopupWithForm
+        name="add-card"
+        title="New Place"
+        isOpen={isAddPlacePopupOpen}
+        onClose={closeAllPopups}
+      >
         {" "}
         <fieldset class="popup__form-fieldset">
           <label for="title" class="popup__form-label"></label>
@@ -114,7 +122,12 @@ function App() {
           </button>
         </fieldset>
       </PopupWithForm>
-      <PopupWithForm name="avatar-change" title="Change profile picture">
+      <PopupWithForm
+        name="avatar-change"
+        title="Change profile picture"
+        isOpen={isEditAvatarPopupOpen}
+        onClose={closeAllPopups}
+      >
         <fieldset class="popup__form-fieldset">
           <label for="image" class="popup__form-label"></label>
           <input

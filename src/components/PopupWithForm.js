@@ -1,15 +1,14 @@
-let isOpen = false;
-
-export default function PopupWithForm(props) {
+function PopupWithForm(props) {
   return (
     <>
       <div
         className={`${`popup popup_type_${props.name}`} ${
-          isOpen ? "popup_open" : ""
+          props.isOpen ? "popup_open" : ""
         }`}
       >
         <div className="popup__container">
           <button
+            onClick={props.onClose}
             type="button"
             aria-label="close"
             className="popup__close-button"
@@ -23,3 +22,5 @@ export default function PopupWithForm(props) {
     </>
   );
 }
+
+export { PopupWithForm };
