@@ -3,6 +3,19 @@ class Api {
     this._baseUrl = options.baseUrl;
     this._token = options.token;
   }
+
+  _checkResponse(res) {
+    if (res.ok) {
+      return res.json();
+    }
+    return Promise.reject(`Error ${res.status}`);
+  }
+
+  getUserInfo() {
+    return fetch(this._baseUrl + "/users/me", {
+      headers: this._token,
+    }).then(this._checkResponse);
+  }
 }
 
 export const api = new Api({
