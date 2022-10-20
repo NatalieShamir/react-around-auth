@@ -1,12 +1,24 @@
 import editpProfileImageIcon from "../images/edit-profile-icon.svg";
 import editpProfileIcon from "../images/button-edit.svg";
 import addCardIcon from "../images/plus_sign.svg";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import { api } from "../utils/Api";
 
 export default function Main(props) {
   const [userName, setUserName] = React.useState("");
   const [userDescription, setUserDescription] = React.useState("");
   const [userAvatar, setUserAvatar] = React.useState("");
+
+  useEffect(() => {
+    api
+      .getUserInfo()
+      .then((res) => {
+        setUserName(res.name);
+        setUserDescription(res.about);
+        setUserAvatar(res.avatar);
+      })
+      .catch((err) => console.log(err));
+  }, []);
 
   return (
     <main className="content">
@@ -15,6 +27,7 @@ export default function Main(props) {
           <div
             className="profile__image"
             title="An image of the French oceanographer- Jacques Cousteau"
+            style={{ backgroundImage: `url(${userAvatar})` }}
           >
             {userAvatar}
             <div className="profile__change-image-button-hide">
