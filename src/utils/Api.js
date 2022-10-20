@@ -16,6 +16,12 @@ class Api {
       headers: this._token,
     }).then(this._checkResponse);
   }
+
+  getCards() {
+    return fetch(this._baseUrl + "/cards", {
+      headers: this._headers,
+    }).then(this._checkResponse);
+  }
 }
 
 export const api = new Api({
