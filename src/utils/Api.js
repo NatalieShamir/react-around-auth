@@ -1,7 +1,7 @@
 class Api {
   constructor(options) {
     this._baseUrl = options.baseUrl;
-    this._token = options.token;
+    this._headers = options.headers;
   }
 
   _checkResponse(res) {
@@ -13,7 +13,7 @@ class Api {
 
   getUserInfo() {
     return fetch(this._baseUrl + "/users/me", {
-      headers: this._token,
+      headers: this._headers,
     }).then(this._checkResponse);
   }
 
@@ -26,7 +26,7 @@ class Api {
 
 export const api = new Api({
   baseUrl: "https://around.nomoreparties.co/v1/cohort-3-en",
-  token: {
+  headers: {
     authorization: "c38a1131-295f-471c-b53b-3cfda4699ea7",
     "Content-Type": "application/json",
   },
