@@ -161,19 +161,6 @@ function App() {
         </fieldset>
       </PopupWithForm>
       <ImagePopup />
-      <template id="card-template">
-        <li className="card">
-          <div className="card__image" syle=""></div>
-          <button type="button" className="card__delete-button"></button>
-          <div className="card__info">
-            <h2 className="card__title"></h2>
-            <div className="card__likes">
-              <button type="button" className="card__like-button"></button>
-              <div className="card__likes-amount"></div>
-            </div>
-          </div>
-        </li>
-      </template>
     </body>
   );
 }
