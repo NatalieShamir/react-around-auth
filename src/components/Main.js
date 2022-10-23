@@ -11,12 +11,12 @@ export default function Main(props) {
   const [cards, setCards] = React.useState([]);
 
   useEffect(() => {
-    api
-      .getUserInfo()
-      .then((res) => {
-        setUserName(res.name);
-        setUserDescription(res.about);
-        setUserAvatar(res.avatar);
+    Promise.all([api.getUserInfo(), api.getCards()])
+      .then(([userData, cards]) => {
+        setUserName(userData.name);
+        setUserDescription(userData.about);
+        setUserAvatar(userData.avatar);
+        setCards(cards);
       })
       .catch((err) => console.log(err));
   }, []);
@@ -74,7 +74,22 @@ export default function Main(props) {
         </button>
       </section>
       <section className="cards">
-        <ul className="cards__gallery"></ul>
+        <ul className="cards__gallery">
+          {" "}
+          {cards.map((card) => (
+            <div key={card.id} className="card">
+              <div className="card__image"></div>
+              <button type="button" className="card__delete-button"></button>
+              <div className="card__info">
+                <h2 className="card-title"></h2>
+                <div className="card__likes">
+                  <button type="button" className="card__like-button"></button>
+                  <div className="card__likes-amount"></div>
+                </div>
+              </div>
+            </div>
+          ))}
+        </ul>
       </section>
     </main>
   );
