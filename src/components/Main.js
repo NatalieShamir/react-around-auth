@@ -78,13 +78,16 @@ export default function Main(props) {
           {" "}
           {cards.map((card) => (
             <div key={card.id} className="card">
-              <div className="card__image"></div>
+              <div
+                className="card__image"
+                style={{ backgroundImage: `url(${card.link})` }}
+              ></div>
               <button type="button" className="card__delete-button"></button>
               <div className="card__info">
-                <h2 className="card-title"></h2>
+                <h2 className="card-title">{card.name}</h2>
                 <div className="card__likes">
                   <button type="button" className="card__like-button"></button>
-                  <div className="card__likes-amount"></div>
+                  <div className="card__likes-amount">{card.likes.length}</div>
                 </div>
               </div>
             </div>
