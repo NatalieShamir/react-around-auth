@@ -1,9 +1,13 @@
 export function Card(props) {
+  function handleCardImageClick() {
+    props.onCardClick(props.card);
+  }
   return (
     <div className="card">
       <div
         className="card__image"
         style={{ backgroundImage: `url(${props.card.link})` }}
+        onClick={handleCardImageClick}
       ></div>
       <button type="button" className="card__delete-button"></button>
       <div className="card__info">
