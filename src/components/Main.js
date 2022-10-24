@@ -78,7 +78,9 @@ export default function Main(props) {
         <ul className="cards__gallery">
           {" "}
           {cards.map((card) => {
-            return <Card key={card.id} card={card} />;
+            return (
+              <Card key={card.id} card={card} onCardClick={props.onCardClick} />
+            );
           })}
         </ul>
       </section>
