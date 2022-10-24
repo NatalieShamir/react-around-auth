@@ -3,6 +3,7 @@ import editpProfileIcon from "../images/button-edit.svg";
 import addCardIcon from "../images/plus_sign.svg";
 import React, { useEffect, useState } from "react";
 import { api } from "../utils/Api";
+import Card from "./Card";
 
 export default function Main(props) {
   const [userName, setUserName] = React.useState("");
@@ -76,22 +77,9 @@ export default function Main(props) {
       <section className="cards">
         <ul className="cards__gallery">
           {" "}
-          {cards.map((card) => (
-            <div key={card.id} className="card">
-              <div
-                className="card__image"
-                style={{ backgroundImage: `url(${card.link})` }}
-              ></div>
-              <button type="button" className="card__delete-button"></button>
-              <div className="card__info">
-                <h2 className="card-title">{card.name}</h2>
-                <div className="card__likes">
-                  <button type="button" className="card__like-button"></button>
-                  <div className="card__likes-amount">{card.likes.length}</div>
-                </div>
-              </div>
-            </div>
-          ))}
+          {cards.map((card) => {
+            return <Card key={card.id} card={card} />;
+          })}
         </ul>
       </section>
     </main>
