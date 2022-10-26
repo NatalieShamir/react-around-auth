@@ -1,4 +1,5 @@
-export function Card(props) {
+function Card(props) {
+  console.log(props);
   function handleCardImageClick() {
     props.onCardClick(props.card);
   }
