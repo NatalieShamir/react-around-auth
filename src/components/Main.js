@@ -28,10 +28,9 @@ export default function Main(props) {
         <div className="profile__user">
           <div
             className="profile__image"
-            title="An image of the French oceanographer- Jacques Cousteau"
+            title="profile avatar image"
             style={{ backgroundImage: `url(${userAvatar})` }}
           >
-            {userAvatar}
             <div className="profile__change-image-button-hide">
               <button
                 onClick={props.onEditAvatarClick}
