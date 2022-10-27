@@ -1,6 +1,5 @@
 function Card(props) {
-  console.log(props);
-  function handleCardImageClick() {
+  function handleCardClick() {
     props.onCardClick(props.card);
   }
   return (
@@ -8,7 +7,7 @@ function Card(props) {
       <div
         className="card__image"
         style={{ backgroundImage: `url(${props.card.link})` }}
-        onClick={handleCardImageClick}
+        onClick={handleCardClick}
       ></div>
       <button type="button" className="card__delete-button"></button>
       <div className="card__info">
