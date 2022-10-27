@@ -32,6 +32,10 @@ function App() {
     setisEditAvatarPopupOpen(false);
     setisEditProfilePopupOpen(false);
     setisAddPlacePopupOpen(false);
+    setSelectedCard({
+      name: "",
+      link: "",
+    });
   }
 
   function handleCardClick(card) {
