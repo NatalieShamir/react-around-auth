@@ -15,3 +15,4 @@ This project is a responsive website, designed to be displayed on most popular s
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 **GitHub**
+[Project on Github](https://github.com/NatalieShamir/around-react)
