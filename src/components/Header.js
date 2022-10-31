@@ -1,4 +1,5 @@
 import headerLogo from "../images/header.svg";
+import React, { Component } from "react";
 
 export default function Header() {
   return (
