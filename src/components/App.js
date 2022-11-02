@@ -60,7 +60,7 @@ function App() {
       >
         {" "}
         <fieldset className="popup__form-fieldset">
-          <label for="name" className="popup__form-label"></label>
+          <label htmlFor="name" className="popup__form-label"></label>
           <input
             type="text"
             id="name-input"
@@ -74,7 +74,7 @@ function App() {
           <span id="name-input-error" className="popup__form-error"></span>
         </fieldset>
         <fieldset className="popup__form-fieldset">
-          <label for="job" className="popup__form-label"></label>
+          <label htmlFor="job" className="popup__form-label"></label>
           <input
             type="text"
             id="job-input"
@@ -101,7 +101,7 @@ function App() {
       >
         {" "}
         <fieldset className="popup__form-fieldset">
-          <label for="title" className="popup__form-label"></label>
+          <label htmlFor="title" className="popup__form-label"></label>
           <input
             type="text"
             id="title-input"
@@ -115,7 +115,7 @@ function App() {
           <span id="title-input-error" className="popup__form-error"></span>
         </fieldset>
         <fieldset className="popup__form-fieldset">
-          <label for="image" className="popup__form-label"></label>
+          <label htmlFor="image" className="popup__form-label"></label>
           <input
             type="url"
             id="image-input"
@@ -142,7 +142,7 @@ function App() {
         onClose={closeAllPopups}
       >
         <fieldset className="popup__form-fieldset">
-          <label for="image" className="popup__form-label"></label>
+          <label htmlFor="image" className="popup__form-label"></label>
           <input
             type="url"
             id="avatar-input"
