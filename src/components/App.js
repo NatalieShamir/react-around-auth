@@ -43,7 +43,7 @@ function App() {
   }
 
   return (
-    <body className="page">
+    <div className="page">
       <Header />
       <Main
         onEditProfileClick={handleEditProfileClick}
@@ -174,7 +174,7 @@ function App() {
         </fieldset>
       </PopupWithForm>
       <ImagePopup card={selectedCard} onClose={closeAllPopups} />
-    </body>
+    </div>
   );
 }
 
