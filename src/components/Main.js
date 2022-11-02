@@ -78,7 +78,11 @@ export default function Main(props) {
           {" "}
           {cards.map((card) => {
             return (
-              <Card key={card.id} card={card} onCardClick={props.onCardClick} />
+              <Card
+                key={card._id}
+                card={card}
+                onCardClick={props.onCardClick}
+              />
             );
           })}
         </ul>
