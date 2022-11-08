@@ -39,7 +39,7 @@ export default function Main(props) {
               >
                 <img
                   src={editpProfileImageIcon}
-                  alt="A vector image of a pen inside the profile image"
+                  alt="A pen"
                   className="profile__change-image-icon"
                 />
               </button>
@@ -54,7 +54,7 @@ export default function Main(props) {
             >
               <img
                 src={editpProfileIcon}
-                alt="A vector image of a pen inside the edit button"
+                alt="A pen"
                 className="profile__edit-icon"
               />
             </button>
@@ -68,7 +68,7 @@ export default function Main(props) {
         >
           <img
             src={addCardIcon}
-            alt="An image of a plus sign inside the add button"
+            alt="A plus sign inside the add button"
             className="profile__add-icon"
           />
         </button>

@@ -15,7 +15,7 @@ export default function ImagePopup({ card, onClose }) {
           <img
             className="popup__preview-image"
             src={card.link}
-            alt="popup featuring an enlarged gallery image"
+            alt="popup featuring an enlarged gallery item"
           />
           <figcaption className="popup__preview-caption">
             {card.name}
