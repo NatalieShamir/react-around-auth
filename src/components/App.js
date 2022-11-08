@@ -3,7 +3,7 @@ import Main from "./Main";
 import Footer from "./Footer";
 import ImagePopup from "./ImagePopup";
 import { PopupWithForm } from "./PopupWithForm";
-import React, { useState } from "react";
+import React from "react";
 
 function App() {
   const [isEditAvatarPopupOpen, setisEditAvatarPopupOpen] =
