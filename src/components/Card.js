@@ -13,7 +13,7 @@ function Card(props) {
       ></div>
       <button type="button" className="card__delete-button"></button>
       <div className="card__info">
-        <h2 className="card-title">{props.card.name}</h2>
+        <h2 className="card__title">{props.card.name}</h2>
         <div className="card__likes">
           <button type="button" className="card__like-button"></button>
           <div className="card__likes-amount">{props.card.likes.length}</div>
