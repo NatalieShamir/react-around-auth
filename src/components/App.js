@@ -57,6 +57,7 @@ function App() {
         title="Edit profile"
         isOpen={isEditProfilePopupOpen}
         onClose={closeAllPopups}
+        buttonText={"Save"}
       >
         {" "}
         <fieldset className="popup__form-fieldset">
@@ -87,17 +88,13 @@ function App() {
           />
           <span id="job-input-error" className="popup__form-error"></span>
         </fieldset>
-        <fieldset className="popup__form-fieldset">
-          <button type="submit" className="button popup__form-button">
-            Save
-          </button>
-        </fieldset>
       </PopupWithForm>
       <PopupWithForm
         name="add-card"
         title="New Place"
         isOpen={isAddPlacePopupOpen}
         onClose={closeAllPopups}
+        buttonText={"Create"}
       >
         {" "}
         <fieldset className="popup__form-fieldset">
@@ -126,20 +123,13 @@ function App() {
           />
           <span id="image-input-error" className="popup__form-error"></span>
         </fieldset>
-        <fieldset className="popup__form-fieldset">
-          <button
-            type="submit"
-            className="button popup__form-button popup__form-button_add-card"
-          >
-            Create
-          </button>
-        </fieldset>
       </PopupWithForm>
       <PopupWithForm
         name="avatar-change"
         title="Change profile picture"
         isOpen={isEditAvatarPopupOpen}
         onClose={closeAllPopups}
+        buttonText={"Save"}
       >
         <fieldset className="popup__form-fieldset">
           <label htmlFor="image" className="popup__form-label"></label>
@@ -153,25 +143,13 @@ function App() {
           />
           <span id="avatar-input-error" className="popup__form-error"></span>
         </fieldset>
-        <fieldset className="popup__form-fieldset">
-          <button
-            type="submit"
-            className="button popup__form-button popup__form-button_avatar-change"
-          >
-            Save
-          </button>
-        </fieldset>
       </PopupWithForm>
-      <PopupWithForm name="confirm-delete" title="Are you sure?">
+      <PopupWithForm
+        name="confirm-delete"
+        title="Are you sure?"
+        buttonText={"Yes"}
+      >
         {" "}
-        <fieldset className="popup__form-fieldset">
-          <button
-            type="submit"
-            className="button popup__form-button popup__form-button_confirm-delete"
-          >
-            Yes
-          </button>
-        </fieldset>
       </PopupWithForm>
       <ImagePopup card={selectedCard} onClose={closeAllPopups} />
     </div>
