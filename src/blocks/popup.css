@@ -81,8 +81,8 @@
 }
 
 .popup__form-button {
-  width: 100%;
-  padding: 13.66px 124px 18.49px 125px;
+  margin: 0 36px;
+  padding: 14px 124px;
   box-sizing: border-box;
   cursor: pointer;
   color: #ffffff;
