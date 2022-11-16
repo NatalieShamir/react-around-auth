@@ -33,6 +33,7 @@
   position: absolute;
   left: 47px;
   bottom: 56px;
+  cursor: pointer;
 }
 
 .profile__change-image-button-hide {
