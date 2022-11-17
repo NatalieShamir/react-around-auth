@@ -15,6 +15,16 @@ function App() {
     name: "",
     link: "",
   });
+  const [currentUser, setCurentUser] = React.useState({});
+
+  useEffect(() => {
+    api
+      .getUserInfo()
+      .then((res) => {
+        setCurentUser(res);
+      })
+      .catch((err) => console.log(err));
+  }, []);
 
   function handleEditAvatarClick() {
     setisEditAvatarPopupOpen(true);
