@@ -54,7 +54,7 @@ function App() {
   }
 
   return (
-    <UserContext.Provider>
+    <UserContext.Provider value={currentUser}>
       <div className="page">
         <Header />
         <Main
