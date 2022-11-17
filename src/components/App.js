@@ -3,8 +3,9 @@ import Main from "./Main";
 import Footer from "./Footer";
 import ImagePopup from "./ImagePopup";
 import { PopupWithForm } from "./PopupWithForm";
-import React from "react";
+import React, { useEffect } from "react";
 import { UserContext } from "../contexts/CurrentUserContext";
+import { api } from "../utils/Api";
 
 function App() {
   const [isEditAvatarPopupOpen, setisEditAvatarPopupOpen] =
