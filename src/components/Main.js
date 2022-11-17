@@ -4,11 +4,10 @@ import addCardIcon from "../images/plus_sign.svg";
 import React, { useEffect } from "react";
 import { api } from "../utils/Api";
 import Card from "./Card";
+import { UserContext } from "../contexts/CurrentUserContext";
 
 export default function Main(props) {
-  const [userName, setUserName] = React.useState("");
-  const [userDescription, setUserDescription] = React.useState("");
-  const [userAvatar, setUserAvatar] = React.useState("");
+  const currentUser = React.useContext(UserContext);
   const [cards, setCards] = React.useState([]);
 
   useEffect(() => {
