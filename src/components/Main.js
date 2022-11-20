@@ -13,7 +13,7 @@ export default function Main(props) {
   useEffect(() => {
     api
       .getCards()
-      .then(([userData, cards]) => {
+      .then((cards) => {
         setCards(cards);
       })
       .catch((err) => console.log(err));
@@ -26,7 +26,7 @@ export default function Main(props) {
           <div
             className="profile__image"
             title="profile avatar image"
-            style={{ backgroundImage: `url(${userAvatar})` }}
+            style={{ backgroundImage: `url(${currentUser.avatar})` }}
           >
             <div className="profile__change-image-button-hide">
               <button
@@ -43,7 +43,7 @@ export default function Main(props) {
             </div>
           </div>
           <div className="profile__info">
-            <h1 className="profile__title">{userName}</h1>
+            <h1 className="profile__title">{currentUser.name}</h1>
             <button
               onClick={props.onEditProfileClick}
               type="button"
@@ -55,7 +55,7 @@ export default function Main(props) {
                 className="profile__edit-icon"
               />
             </button>
-            <p className="profile__subtitle">{userDescription}</p>
+            <p className="profile__subtitle">{currentUser.job}</p>
           </div>
         </div>
         <button
