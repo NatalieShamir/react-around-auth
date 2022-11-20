@@ -12,22 +12,28 @@ function Card({ card }) {
     isOwn ? "card__delete-button_visible" : "card__delete-button_hidden"
   }`;
 
+  const isLiked = card.likes.some((user) => user._id === currentUser._id);
+
+  const cardLikeButtonClassName = `card__like-button ${
+    isLiked ? "card__like-button_liked" : "card__like-button_disliked"
+  }`;
+
   function handleCardClick() {
-    props.onCardClick(props.card);
+    onCardClick(card);
   }
   return (
     <div className="card">
       <div
         className="card__image"
-        style={{ backgroundImage: `url(${props.card.link})` }}
+        style={{ backgroundImage: `url(${card.link})` }}
         onClick={handleCardClick}
       ></div>
       <button type="button" className={cardDeleteButtonClassName}></button>
       <div className="card__info">
-        <h2 className="card__title">{props.card.name}</h2>
+        <h2 className="card__title">{card.name}</h2>
         <div className="card__likes">
-          <button type="button" className="card__like-button"></button>
-          <div className="card__likes-amount">{props.card.likes.length}</div>
+          <button type="button" className={cardLikeButtonClassName}></button>
+          <div className="card__likes-amount">{card.likes.length}</div>
         </div>
       </div>
     </div>
