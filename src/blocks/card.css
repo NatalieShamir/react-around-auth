@@ -34,7 +34,7 @@
 }
 
 .card__delete-button_visible {
-  display: block;
+  display: inline-block;
 }
 
 .card__delete-button_hidden {
@@ -73,6 +73,14 @@
 
 .card__like-button_active {
   background-image: url("../images/heart-active.svg");
+}
+
+.card__like-button_liked {
+  display: flex;
+}
+
+.card__like-button_hidden {
+  display: hidden;
 }
 
 .card__likes {
