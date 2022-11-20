@@ -22,7 +22,7 @@ function Card({ card }) {
         style={{ backgroundImage: `url(${props.card.link})` }}
         onClick={handleCardClick}
       ></div>
-      <button type="button" className="card__delete-button"></button>
+      <button type="button" className={cardDeleteButtonClassName}></button>
       <div className="card__info">
         <h2 className="card__title">{props.card.name}</h2>
         <div className="card__likes">
