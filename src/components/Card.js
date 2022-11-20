@@ -1,7 +1,17 @@
 import React from "react";
 import { UserContext } from "../contexts/CurrentUserContext";
 
-function Card(props) {
+function Card({ card }) {
+  const currentUser = React.useContext(UserContext);
+
+  // Checking if the current user is the owner of the current card
+  const isOwn = card.owner._id === currentUser._id;
+
+  // Creating a variable which you'll then set in `className` for the delete button
+  const cardDeleteButtonClassName = `card__delete-button ${
+    isOwn ? "card__delete-button_visible" : "card__delete-button_hidden"
+  }`;
+
   function handleCardClick() {
     props.onCardClick(props.card);
   }
