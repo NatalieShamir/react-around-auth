@@ -11,11 +11,9 @@ export default function Main(props) {
   const [cards, setCards] = React.useState([]);
 
   useEffect(() => {
-    Promise.all([api.getUserInfo(), api.getCards()])
+    api
+      .getCards()
       .then(([userData, cards]) => {
-        setUserName(userData.name);
-        setUserDescription(userData.about);
-        setUserAvatar(userData.avatar);
         setCards(cards);
       })
       .catch((err) => console.log(err));
