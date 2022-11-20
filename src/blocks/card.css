@@ -33,6 +33,13 @@
   background-image: url("../images/bin_hover.svg");
 }
 
+.card__delete-button_visible {
+  display: block;
+}
+
+.card__delete-button_hidden {
+  display: hidden;
+}
 .card__info {
   max-width: 246px;
   margin: auto 15px auto 21px;
