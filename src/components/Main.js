@@ -102,6 +102,7 @@ export default function Main(props) {
                 onCardClick={props.onCardClick}
                 {...card}
                 onCardLike={handleCardLike}
+                onCardDelete={handleCardDelete}
               />
             );
           })}
