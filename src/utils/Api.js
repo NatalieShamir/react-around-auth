@@ -22,6 +22,20 @@ class Api {
       headers: this._headers,
     }).then(this._checkResponse);
   }
+
+  addLike(id) {
+    return fetch(this._baseUrl + "/cards/likes/" + id, {
+      method: "PUT",
+      headers: this._headers,
+    }).then(this._checkResponse);
+  }
+
+  removeLike(id) {
+    return fetch(this._baseUrl + "/cards/likes/" + id, {
+      method: "DELETE",
+      headers: this._headers,
+    }).then(this._checkResponse);
+  }
 }
 
 export const api = new Api({
