@@ -37,11 +37,19 @@ function Card({ card, onCardClick, onCardLike, onCardDelete }) {
         style={{ backgroundImage: `url(${card.link})` }}
         onClick={handleCardClick}
       ></div>
-      <button type="button" className={cardDeleteButtonClassName}></button>
+      <button
+        type="button"
+        className={cardDeleteButtonClassName}
+        onClick={handleDeleteClick}
+      ></button>
       <div className="card__info">
         <h2 className="card__title">{card.name}</h2>
         <div className="card__likes">
-          <button type="button" className={cardLikeButtonClassName}></button>
+          <button
+            type="button"
+            className={cardLikeButtonClassName}
+            onClick={handleLikeClick}
+          ></button>
           <div className="card__likes-amount">{card.likes.length}</div>
         </div>
       </div>
