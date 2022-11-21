@@ -18,7 +18,7 @@ export default function Main(props) {
     } else {
       api.addLike(card._id).then((likedCard) => {
         const newCards = cards.map((card) => {
-          return card._id == likedCard._id ? likedCard : card;
+          return card._id === likedCard._id ? likedCard : card;
         });
         setCards(newCards);
       });
