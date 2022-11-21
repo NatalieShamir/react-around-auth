@@ -1,7 +1,7 @@
 import React from "react";
 import { UserContext } from "../contexts/CurrentUserContext";
 
-function Card({ card }) {
+function Card({ card, onCardClick }) {
   const currentUser = React.useContext(UserContext);
 
   // Checking if the current user is the owner of the current card
@@ -21,6 +21,7 @@ function Card({ card }) {
   function handleCardClick() {
     onCardClick(card);
   }
+
   return (
     <div className="card">
       <div
