@@ -93,6 +93,8 @@ export default function Main(props) {
                 key={card._id}
                 card={card}
                 onCardClick={props.onCardClick}
+                {...card}
+                onCardLike={handleCardLike}
               />
             );
           })}
