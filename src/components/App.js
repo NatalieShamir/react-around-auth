@@ -65,6 +65,10 @@ function App() {
           onCardClick={handleCardClick}
         />
         <Footer />
+        <EditProfilePopup
+          isOpen={isEditProfilePopupOpen}
+          onClose={closeAllPopups}
+        />
         <PopupWithForm
           name="add-card"
           title="New Place"
