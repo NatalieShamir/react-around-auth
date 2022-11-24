@@ -5,6 +5,11 @@ function EditProfilePopup({ isOpen, onClose }) {
   const [name, setName] = React.useState(currentUser.name);
   const [description, setDescription] = React.useState(currentUser.about);
 
+  React.useEffect(() => {
+    setName(currentUser.name);
+    setDescription(currentUser.about);
+  }, [currentUser]);
+
   return (
     <PopupWithForm
       name="edit-profile"
