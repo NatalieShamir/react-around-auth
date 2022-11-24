@@ -1,10 +1,10 @@
-function EditProfilePopup() {
+function EditProfilePopup({ isOpen, onClose }) {
   return (
     <PopupWithForm
       name="edit-profile"
       title="Edit profile"
-      isOpen={isEditProfilePopupOpen}
-      onClose={closeAllPopups}
+      isOpen={isOpen}
+      onClose={onClose}
       buttonText={"Save"}
     >
       {" "}
