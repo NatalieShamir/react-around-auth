@@ -10,6 +10,15 @@ export default function Main(props) {
   const currentUser = React.useContext(UserContext);
   const [cards, setCards] = React.useState([]);
 
+  useEffect(() => {
+    api
+      .getCards()
+      .then((cards) => {
+        setCards(cards);
+      })
+      .catch((err) => console.log(err));
+  }, []);
+
   function handleCardLike(card) {
     const isLiked = card.likes.some((user) => user._id === currentUser._id);
 
@@ -31,15 +40,6 @@ export default function Main(props) {
       setCards(newCards);
     });
   }
-
-  useEffect(() => {
-    api
-      .getCards()
-      .then((cards) => {
-        setCards(cards);
-      })
-      .catch((err) => console.log(err));
-  }, []);
 
   return (
     <main className="content">
@@ -101,7 +101,6 @@ export default function Main(props) {
                 key={card._id}
                 card={card}
                 onCardClick={props.onCardClick}
-                {...card}
                 onCardLike={handleCardLike}
                 onCardDelete={handleCardDelete}
               />
