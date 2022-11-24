@@ -26,7 +26,7 @@ export default function Main(props) {
   }
 
   function handleCardDelete(card) {
-    api.deleteCard(card).then((res) => {
+    api.deleteCard(card._id).then((res) => {
       const newCards = cards.filter((card) => card._id !== card);
       setCards(newCards);
     });
