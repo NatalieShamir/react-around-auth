@@ -1,4 +1,8 @@
+import { useState } from "react";
+
 function EditProfilePopup({ isOpen, onClose }) {
+  const [name, setName] = React.useState("");
+  const [description, setDescription] = React.useState("");
   return (
     <PopupWithForm
       name="edit-profile"
