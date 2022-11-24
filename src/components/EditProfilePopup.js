@@ -20,6 +20,7 @@ function EditProfilePopup({ isOpen, onClose }) {
           className="popup__form-input popup__form-input_type_name"
           name="name"
           value={name}
+          onChange={(e) => setName(e.target.value)}
           placeholder="Name"
           required
           minLength="2"
@@ -35,6 +36,7 @@ function EditProfilePopup({ isOpen, onClose }) {
           className="popup__form-input popup__form-input_type_job"
           name="job"
           value={description}
+          onChange={(e) => setDescription(e.target.value)}
           placeholder="About me"
           required
           minLength="2"
