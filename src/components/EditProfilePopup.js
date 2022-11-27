@@ -63,3 +63,5 @@ function EditProfilePopup({ isOpen, onClose, onUpdateUser }) {
     </PopupWithForm>
   );
 }
+
+export { EditProfilePopup };
