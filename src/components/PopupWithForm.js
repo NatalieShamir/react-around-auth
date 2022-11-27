@@ -1,6 +1,6 @@
 import React from "react";
 
-function PopupWithForm(props) {
+function PopupWithForm(props, { onSubmit }) {
   return (
     <div
       className={`${`popup popup_type_${props.name}`} ${
@@ -14,7 +14,7 @@ function PopupWithForm(props) {
           aria-label="close"
           className="popup__close-button"
         ></button>
-        <form name={props.name} className="popup__form">
+        <form name={props.name} className="popup__form" onSubmit={onSubmit}>
           <h3 className="popup__form-title">{props.title}</h3>
           {props.children}
           <button type="submit" className="button popup__form-button">
