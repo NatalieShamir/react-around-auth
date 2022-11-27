@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { React, useState } from "react";
 
 function EditProfilePopup({ isOpen, onClose, onUpdateUser }) {
   const currentUser = React.useContext(CurrentUserContext);
