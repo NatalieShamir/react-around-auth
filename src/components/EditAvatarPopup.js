@@ -22,3 +22,5 @@ function EditAvatarPopup() {
     </PopupWithForm>
   );
 }
+
+export { EditAvatarPopup };

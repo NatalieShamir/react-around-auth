@@ -7,6 +7,7 @@ import React, { useEffect } from "react";
 import { UserContext } from "../contexts/CurrentUserContext";
 import { api } from "../utils/Api";
 import { EditProfilePopup } from "./EditProfilePopup";
+import { EditAvatarPopup } from "./EditAvatarPopup";
 
 function App() {
   const [isEditAvatarPopupOpen, setisEditAvatarPopupOpen] =
