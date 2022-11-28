@@ -37,7 +37,7 @@ function EditProfilePopup({ isOpen, onClose, onUpdateUser }) {
           id="name-input"
           className="popup__form-input popup__form-input_type_name"
           name="name"
-          value={name}
+          value={name || ""}
           onChange={(e) => setName(e.target.value)}
           placeholder="Name"
           required
@@ -53,7 +53,7 @@ function EditProfilePopup({ isOpen, onClose, onUpdateUser }) {
           id="job-input"
           className="popup__form-input popup__form-input_type_job"
           name="job"
-          value={description}
+          value={description || ""}
           onChange={(e) => setDescription(e.target.value)}
           placeholder="About me"
           required
