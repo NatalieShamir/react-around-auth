@@ -28,6 +28,7 @@ function EditProfilePopup({ isOpen, onClose, onUpdateUser }) {
       isOpen={isOpen}
       onClose={onClose}
       buttonText={"Save"}
+      onSubmit={handleSubmit}
     >
       {" "}
       <fieldset className="popup__form-fieldset">
