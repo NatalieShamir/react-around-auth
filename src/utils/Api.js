@@ -11,7 +11,7 @@ class Api {
     return Promise.reject(`Error ${res.status}`);
   }
 
-  getUserInfo() {
+  setUserInfo() {
     return fetch(this._baseUrl + "/users/me", {
       headers: this._headers,
     }).then(this._checkResponse);
@@ -34,6 +34,16 @@ class Api {
     return fetch(this._baseUrl + "/cards/likes/" + id, {
       method: "DELETE",
       headers: this._headers,
+    }).then(this._checkResponse);
+  }
+
+  setUserAvatar(avatar) {
+    return fetch(this._baseUrl + "/users/me/avatar", {
+      method: "PATCH",
+      headers: this._headers,
+      body: JSON.stringify({
+        avatar,
+      }),
     }).then(this._checkResponse);
   }
 
