@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { React, useRef } from "react";
 
 function EditAvatarPopup({ onUpdateAvatar, isOpen, onClose }) {
   const avatarRef = useRef();
