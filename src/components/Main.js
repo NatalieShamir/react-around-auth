@@ -12,7 +12,7 @@ export default function Main(props) {
 
   useEffect(() => {
     api
-      .getCards()
+      .getCardList()
       .then((cards) => {
         setCards(cards);
       })
