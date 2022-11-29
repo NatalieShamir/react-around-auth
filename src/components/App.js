@@ -57,10 +57,27 @@ function App() {
   }
 
   function handleUpdateUser({ name, about }) {
-    api.setUserInfo(name, about).then((res) => {
-      setCurentUser(res);
-      closeAllPopups();
-    });
+    api
+      .setUserInfo(name, about)
+      .then((res) => {
+        setCurentUser(res);
+      })
+      .catch(console.log)
+      .finally(() => {
+        closeAllPopups();
+      });
+  }
+
+  function handleUpdateAvatar({ avatar }) {
+    api
+      .setUserAvatar(avatar)
+      .then((res) => {
+        setCurentUser({ ...currentUser, avatar: res.avatar });
+      })
+      .catch(console.log)
+      .finally(() => {
+        closeAllPopups();
+      });
   }
 
   return (
@@ -117,6 +134,7 @@ function App() {
         <EditAvatarPopup
           isOpen={isEditAvatarPopupOpen}
           onClose={closeAllPopups}
+          onUpdateAvatar={handleUpdateAvatar}
         />
         <PopupWithForm
           name="confirm-delete"

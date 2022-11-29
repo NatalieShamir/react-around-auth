@@ -1,12 +1,27 @@
-function EditAvatarPopup() {
+import { useRef } from "react";
+
+function EditAvatarPopup({ onUpdateAvatar, isOpen, onClose }) {
+  const avatarRef = useRef();
+
+  function handleSubmit(e) {
+    const avatarValue = avatarRef.current.value;
+    e.preventDefault();
+
+    onUpdateAvatar({
+      avatar: avatarValue,
+    });
+  }
+
   return (
     <PopupWithForm
       name="avatar-change"
       title="Change profile picture"
-      isOpen={isEditAvatarPopupOpen}
-      onClose={closeAllPopups}
+      isOpen={isOpen}
+      onClose={onClose}
       buttonText={"Save"}
+      onSubmit={handleSubmit}
     >
+      <input ref={avatarRef} />
       <fieldset className="popup__form-fieldset">
         <label htmlFor="image" className="popup__form-label"></label>
         <input
