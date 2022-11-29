@@ -23,7 +23,7 @@ function App() {
 
   useEffect(() => {
     api
-      .getUserInfo()
+      .setUserInfo()
       .then((res) => {
         setCurentUser(res);
       })
