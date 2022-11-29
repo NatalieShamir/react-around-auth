@@ -20,6 +20,7 @@ function App() {
     link: "",
   });
   const [currentUser, setCurentUser] = React.useState({});
+  const [cards, setCards] = React.useState([]);
 
   useEffect(() => {
     api
