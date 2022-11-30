@@ -114,6 +114,12 @@ function App() {
     });
   }
 
+  function handleAddPlaceSubmit({ name, url }) {
+    api.createCard(name, url).then((res) => {
+      setCards([...cards, res]);
+    });
+  }
+
   return (
     <UserContext.Provider value={currentUser || ""}>
       <div className="page">
@@ -133,7 +139,11 @@ function App() {
           onClose={closeAllPopups}
           onUpdateUser={handleUpdateUser}
         />
-        <AddPlacePopup isOpen={isAddPlacePopupOpen} onClose={closeAllPopups} />
+        <AddPlacePopup
+          isOpen={isAddPlacePopupOpen}
+          onClose={closeAllPopups}
+          onAddPlacePopup={handleAddPlaceSubmit}
+        />
         <EditAvatarPopup
           isOpen={isEditAvatarPopupOpen}
           onClose={closeAllPopups}
