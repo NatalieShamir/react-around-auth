@@ -132,7 +132,7 @@ function App() {
           onClose={closeAllPopups}
           onUpdateUser={handleUpdateUser}
         />
-
+        <AddPlacePopup isOpen={isAddPlacePopupOpen} onClose={closeAllPopups} />
         <EditAvatarPopup
           isOpen={isEditAvatarPopupOpen}
           onClose={closeAllPopups}
