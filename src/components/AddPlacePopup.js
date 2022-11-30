@@ -8,7 +8,6 @@ function AddPlacePopup({ onAddPlaceSubmit, isOpen, onClose }) {
       title="New Place"
       isOpen={isOpen}
       onClose={onClose}
-      onAddPlaceSubmit={onAddPlaceSubmit}
       buttonText={"Create"}
     >
       {" "}
