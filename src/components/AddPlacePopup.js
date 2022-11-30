@@ -1,13 +1,14 @@
 import React from "react";
 import { PopupWithForm } from "./PopupWithForm";
 
-function AddPlacePopup({ isOpen, onClose }) {
+function AddPlacePopup({ onAddPlaceSubmit, isOpen, onClose }) {
   return (
     <PopupWithForm
       name="add-card"
       title="New Place"
       isOpen={isOpen}
       onClose={onClose}
+      onAddPlaceSubmit={onAddPlaceSubmit}
       buttonText={"Create"}
     >
       {" "}
