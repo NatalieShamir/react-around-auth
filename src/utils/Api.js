@@ -23,6 +23,17 @@ class Api {
     }).then(this._checkResponse);
   }
 
+  createCard(name, link) {
+    return fetch(this._baseUrl + "/cards", {
+      method: "POST",
+      headers: this._headers,
+      body: JSON.stringify({
+        name,
+        link,
+      }),
+    }).then(this._checkResponse);
+  }
+
   addLike(id) {
     return fetch(this._baseUrl + "/cards/likes/" + id, {
       method: "PUT",
