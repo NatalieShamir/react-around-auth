@@ -27,11 +27,18 @@ function App() {
       setCurentUser(res);
     });
 
-    api
+    /*  api
       .getCardList()
       .then((res) => {
         setCards(res);
+      }) */
+
+    api
+      .getCardList()
+      .then((cards) => {
+        setCards(cards);
       })
+
       .catch((err) => console.log(err));
   }, []);
 
@@ -84,6 +91,27 @@ function App() {
         closeAllPopups();
       });
   }
+  function handleCardLike(card) {
+    const isLiked = card.likes.some((user) => user._id === currentUser._id);
+
+    if (isLiked) {
+      api.removeLike(card._id);
+    } else {
+      api.addLike(card._id).then((likedCard) => {
+        const newCards = cards.map((card) => {
+          return card._id === likedCard._id ? likedCard : card;
+        });
+        setCards(newCards);
+      });
+    }
+  }
+
+  function handleCardDelete(card) {
+    api.deleteCard(card._id).then((res) => {
+      const newCards = cards.filter((card) => card._id !== card);
+      setCards(newCards);
+    });
+  }
 
   return (
     <UserContext.Provider value={currentUser || ""}>
@@ -94,6 +122,9 @@ function App() {
           onAddPlaceClick={handleAddPlaceClick}
           onEditAvatarClick={handleEditAvatarClick}
           onCardClick={handleCardClick}
+          cards={cards}
+          onCardLike={handleCardLike}
+          onCardDelete={handleCardDelete}
         />
         <Footer />
         <EditProfilePopup
