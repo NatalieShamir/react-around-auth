@@ -1,3 +1,4 @@
+import React from "react";
 function AddPlacePopup() {
   return (
     <PopupWithForm
@@ -37,3 +38,5 @@ function AddPlacePopup() {
     </PopupWithForm>
   );
 }
+
+export { AddPlacePopup };
