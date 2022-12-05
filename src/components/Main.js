@@ -1,8 +1,7 @@
 import editpProfileImageIcon from "../images/edit-profile-icon.svg";
 import editpProfileIcon from "../images/button-edit.svg";
 import addCardIcon from "../images/plus_sign.svg";
-import React, { useEffect } from "react";
-import { api } from "../utils/Api";
+import React from "react";
 import Card from "./Card";
 import { UserContext } from "../contexts/CurrentUserContext";
 
