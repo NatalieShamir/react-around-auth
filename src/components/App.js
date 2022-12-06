@@ -3,7 +3,8 @@ import Main from "./Main";
 import Footer from "./Footer";
 import ImagePopup from "./ImagePopup";
 import { PopupWithForm } from "./PopupWithForm";
-import React, { useEffect } from "react";
+import React from "react";
+import { useEffect } from "react";
 import { UserContext } from "../contexts/CurrentUserContext";
 import { api } from "../utils/Api";
 import { EditProfilePopup } from "./EditProfilePopup";
@@ -86,6 +87,7 @@ function App() {
         closeAllPopups();
       });
   }
+
   function handleCardLike(card) {
     const isLiked = card.likes.some((user) => user._id === currentUser._id);
 
