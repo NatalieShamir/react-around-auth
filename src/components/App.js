@@ -28,16 +28,10 @@ function App() {
       setCurentUser(res);
     });
 
-    /*  api
+    api
       .getCardList()
       .then((res) => {
         setCards(res);
-      }) */
-
-    api
-      .getCardList()
-      .then((cards) => {
-        setCards(cards);
       })
 
       .catch((err) => console.log(err));
@@ -114,9 +108,9 @@ function App() {
     });
   }
 
-  function handleAddPlaceSubmit({ name, url }) {
+  function handleAddPlaceSubmit(name, url) {
     api.createCard(name, url).then((res) => {
-      setCards([...cards, res]);
+      setCards([res, ...cards]);
     });
   }
 
@@ -139,6 +133,7 @@ function App() {
           onClose={closeAllPopups}
           onUpdateUser={handleUpdateUser}
         />
+
         <AddPlacePopup
           isOpen={isAddPlacePopupOpen}
           onClose={closeAllPopups}
