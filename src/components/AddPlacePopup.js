@@ -1,13 +1,22 @@
-import React from "react";
+import React, { useState } from "react";
 import { PopupWithForm } from "./PopupWithForm";
 
 function AddPlacePopup({ onAddPlaceSubmit, isOpen, onClose }) {
+  const [cardName, setCardName] = useState("");
+  const [link, setLink] = useState("");
+
+  function handleSubmit(e) {
+    e.preventDefault();
+
+    onAddPlaceSubmit(cardName, link);
+  }
   return (
     <PopupWithForm
       name="add-card"
       title="New Place"
       isOpen={isOpen}
       onClose={onClose}
+      onSubmit={handleSubmit}
       buttonText={"Create"}
     >
       {" "}
@@ -18,6 +27,8 @@ function AddPlacePopup({ onAddPlaceSubmit, isOpen, onClose }) {
           id="title-input"
           className="popup__form-input"
           name="title"
+          value={cardName}
+          onChange={(e) => setCardName(e.target.value)}
           placeholder="Title"
           required
           minLength="1"
@@ -32,6 +43,8 @@ function AddPlacePopup({ onAddPlaceSubmit, isOpen, onClose }) {
           id="image-input"
           className="popup__form-input popup__form-input_type_image"
           name="image"
+          value={link}
+          onChange={(e) => setLink(e.target.value)}
           placeholder="Image URL"
           required
         />
