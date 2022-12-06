@@ -65,7 +65,7 @@ function App() {
 
   function handleUpdateUser({ name, about }) {
     api
-      .setUserInfo(name, about)
+      .editProfile(name, about)
       .then((res) => {
         setCurentUser(res);
       })
