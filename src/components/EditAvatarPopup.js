@@ -23,13 +23,10 @@ function EditAvatarPopup({ onUpdateAvatar, isOpen, onClose }) {
       buttonText={"Save"}
       onSubmit={handleSubmit}
     >
-      <input
-        ref={avatarRef}
-        className="popup__form-input popup__form-input_type_ref"
-      />
       <fieldset className="popup__form-fieldset">
         <label htmlFor="image" className="popup__form-label"></label>
         <input
+          ref={avatarRef}
           type="url"
           id="avatar-input"
           className="popup__form-input popup__form-input_type_image"
