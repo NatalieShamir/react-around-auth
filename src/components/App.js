@@ -110,7 +110,7 @@ function App() {
     });
   }
 
-  function handleAddPlaceSubmit(name, url) {
+  function handleAddPlaceSubmit({ name, url }) {
     api.createCard(name, url).then((res) => {
       setCards([res, ...cards]);
     });
@@ -139,7 +139,7 @@ function App() {
         <AddPlacePopup
           isOpen={isAddPlacePopupOpen}
           onClose={closeAllPopups}
-          onAddPlacePopup={handleAddPlaceSubmit}
+          onAddPlaceSubmit={handleAddPlaceSubmit}
         />
         <EditAvatarPopup
           isOpen={isEditAvatarPopupOpen}
