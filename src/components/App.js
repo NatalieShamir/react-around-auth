@@ -94,26 +94,39 @@ function App() {
     if (isLiked) {
       api.removeLike(card._id);
     } else {
-      api.addLike(card._id).then((likedCard) => {
-        const newCards = cards.map((card) => {
-          return card._id === likedCard._id ? likedCard : card;
-        });
-        setCards(newCards);
-      });
+      api
+        .addLike(card._id)
+        .then((likedCard) => {
+          const newCards = cards.map((card) => {
+            return card._id === likedCard._id ? likedCard : card;
+          });
+          setCards(newCards);
+        })
+        .catch(console.log);
     }
   }
 
   function handleCardDelete(card) {
-    api.deleteCard(card._id).then((res) => {
-      const newCards = cards.filter((card) => card._id !== card);
-      setCards(newCards);
-    });
+    api
+      .deleteCard(card._id)
+      .then((res) => {
+        const newCards = cards.filter((card) => card._id !== card);
+        setCards(newCards);
+      })
+      .catch(console.log);
   }
 
   function handleAddPlaceSubmit(name, url) {
-    api.createCard(name, url).then((res) => {
-      setCards([res, ...cards]);
-    });
+    api
+      .createCard(name, url)
+      .then((res) => {
+        setCards([res, ...cards]);
+      })
+
+      .catch(console.log)
+      .finally(() => {
+        closeAllPopups();
+      });
   }
 
   return (
