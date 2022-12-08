@@ -21,12 +21,12 @@ function App() {
     name: "",
     link: "",
   });
-  const [currentUser, setCurentUser] = React.useState({});
+  const [currentUser, setCurrentUser] = React.useState({});
   const [cards, setCards] = React.useState([]);
 
   useEffect(() => {
     api.setUserInfo().then((res) => {
-      setCurentUser(res);
+      setCurrentUser(res);
     });
 
     api
@@ -68,7 +68,7 @@ function App() {
     api
       .editProfile(name, about)
       .then((res) => {
-        setCurentUser(res);
+        setCurrentUser(res);
       })
       .catch(console.log)
       .finally(() => {
@@ -80,7 +80,7 @@ function App() {
     api
       .setUserAvatar(avatar)
       .then((res) => {
-        setCurentUser({ ...currentUser, avatar: res.avatar });
+        setCurrentUser({ ...currentUser, avatar: res.avatar });
       })
       .catch(console.log)
       .finally(() => {
