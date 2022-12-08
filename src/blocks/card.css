@@ -71,15 +71,12 @@
   opacity: 0.5;
 }
 
-.card__like-button_active {
+.card__like-button_liked {
+  display: flex;
   background-image: url("../images/heart-active.svg");
 }
 
-.card__like-button_liked {
-  display: flex;
-}
-
-.card__like-button_hidden {
+.card__like-button_disliked {
   display: hidden;
 }
 
