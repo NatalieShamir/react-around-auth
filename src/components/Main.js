@@ -52,7 +52,7 @@ export default function Main({
                 className="profile__edit-icon"
               />
             </button>
-            <p className="profile__subtitle">{currentUser.job}</p>
+            <p className="profile__subtitle">{currentUser.about}</p>
           </div>
         </div>
         <button
