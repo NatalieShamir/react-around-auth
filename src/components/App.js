@@ -25,7 +25,7 @@ function App() {
   const [cards, setCards] = React.useState([]);
 
   useEffect(() => {
-    api.setUserInfo().then((res) => {
+    api.getUserInfo().then((res) => {
       setCurrentUser(res);
     });
 
