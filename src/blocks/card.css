@@ -38,7 +38,7 @@
 }
 
 .card__delete-button_hidden {
-  display: hidden;
+  display: none;
 }
 .card__info {
   max-width: 246px;
