@@ -135,7 +135,7 @@ function App() {
   }
 
   return (
-    <UserContext.Provider value={currentUser || ""}>
+    <UserContext.Provider value={currentUser}>
       <div className="page">
         <Header />
         <Main
