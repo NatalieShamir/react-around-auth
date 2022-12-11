@@ -96,7 +96,7 @@ function App() {
     const isLiked = card.likes.some((user) => user._id === currentUser._id);
 
     if (isLiked) {
-      api.removeLike(card._id).then.catch(console.log);
+      api.removeLike(card._id);
     } else {
       api
         .addLike(card._id)
@@ -153,7 +153,6 @@ function App() {
           onClose={closeAllPopups}
           onUpdateUser={handleUpdateUser}
         />
-
         <AddPlacePopup
           isOpen={isAddPlacePopupOpen}
           onClose={closeAllPopups}
@@ -168,9 +167,7 @@ function App() {
           name="confirm-delete"
           title="Are you sure?"
           buttonText={"Yes"}
-        >
-          {" "}
-        </PopupWithForm>
+        />{" "}
         <ImagePopup card={selectedCard} onClose={closeAllPopups} />
       </div>
     </UserContext.Provider>
