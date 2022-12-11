@@ -11,7 +11,7 @@ export default function ImagePopup({ card, onClose }) {
             type="button"
             className="popup__close-button popup__close-button_close_preview"
             onClick={onClose}
-          ></button>
+          />
           <img
             className="popup__preview-image"
             src={card.link}
