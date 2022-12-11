@@ -64,6 +64,18 @@ function App() {
     });
   }
 
+  useEffect(() => {
+    function closeByEscape(e) {
+      if (e.key === "Escape") {
+        closeAllPopups();
+      }
+    }
+
+    document.addEventListener("keydown", closeByEscape);
+
+    return () => document.removeEventListener("keydown", closeByEscape);
+  }, []);
+
   function handleCardClick(card) {
     setSelectedCard(card);
   }
