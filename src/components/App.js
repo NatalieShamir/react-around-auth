@@ -114,7 +114,8 @@ function App() {
     api
       .deleteCard(card._id)
       .then((res) => {
-        const newCards = cards.filter((card) => card._id !== card);
+        const newCards = cards.filter((item) => item._id !== card._id);
+
         setCards(newCards);
       })
       .catch(console.log);
