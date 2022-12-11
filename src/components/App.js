@@ -31,7 +31,7 @@ function App() {
         setCurrentUser(res);
       })
 
-      .catch((err) => console.log(err));
+      .catch(console.log);
 
     api
       .getCardList()
@@ -39,7 +39,7 @@ function App() {
         setCards(res);
       })
 
-      .catch((err) => console.log(err));
+      .catch(console.log);
   }, []);
 
   function handleEditAvatarClick() {
@@ -96,7 +96,7 @@ function App() {
     const isLiked = card.likes.some((user) => user._id === currentUser._id);
 
     if (isLiked) {
-      api.removeLike(card._id);
+      api.removeLike(card._id).then.catch(console.log);
     } else {
       api
         .addLike(card._id)
