@@ -7,8 +7,7 @@ export default function Header() {
       <img
         className="header__image"
         src={headerLogo}
-        alt="The
-project's title"
+        alt="Project title- Around The U.S."
       />
     </header>
   );
