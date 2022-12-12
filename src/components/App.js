@@ -85,11 +85,9 @@ function App() {
       .editProfile(name, about)
       .then((res) => {
         setCurrentUser(res);
-      })
-      .catch(console.log)
-      .finally(() => {
         closeAllPopups();
-      });
+      })
+      .catch(console.log);
   }
 
   function handleUpdateAvatar({ avatar }) {
@@ -97,11 +95,9 @@ function App() {
       .setUserAvatar(avatar)
       .then((res) => {
         setCurrentUser({ ...currentUser, avatar: res.avatar });
-      })
-      .catch(console.log)
-      .finally(() => {
         closeAllPopups();
-      });
+      })
+      .catch(console.log);
   }
 
   function handleCardLike(card) {
@@ -138,12 +134,10 @@ function App() {
       .createCard(name, url)
       .then((res) => {
         setCards([res, ...cards]);
+        closeAllPopups();
       })
 
-      .catch(console.log)
-      .finally(() => {
-        closeAllPopups();
-      });
+      .catch(console.log);
   }
 
   return (
