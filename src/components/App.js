@@ -30,7 +30,6 @@ function App() {
       .then((res) => {
         setCurrentUser(res);
       })
-
       .catch(console.log);
 
     api
@@ -38,7 +37,6 @@ function App() {
       .then((res) => {
         setCards(res);
       })
-
       .catch(console.log);
   }, []);
 
@@ -70,9 +68,7 @@ function App() {
         closeAllPopups();
       }
     }
-
     document.addEventListener("keydown", closeByEscape);
-
     return () => document.removeEventListener("keydown", closeByEscape);
   }, []);
 
@@ -131,7 +127,6 @@ function App() {
       .deleteCard(card._id)
       .then((res) => {
         const newCards = cards.filter((item) => item._id !== card._id);
-
         setCards(newCards);
       })
       .catch(console.log);
@@ -144,7 +139,6 @@ function App() {
         setCards([res, ...cards]);
         closeAllPopups();
       })
-
       .catch(console.log);
   }
 
