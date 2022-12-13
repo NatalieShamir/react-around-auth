@@ -23,6 +23,7 @@ function App() {
   });
   const [currentUser, setCurrentUser] = React.useState({});
   const [cards, setCards] = React.useState([]);
+  const [isAddCardProcessing, setIsAddCardProcessing] = React.useState(false);
 
   useEffect(() => {
     api
@@ -133,13 +134,17 @@ function App() {
   }
 
   function handleAddPlaceSubmit(name, url) {
+    setIsAddCardProcessing(true);
     api
       .createCard(name, url)
       .then((res) => {
         setCards([res, ...cards]);
         closeAllPopups();
       })
-      .catch(console.log);
+      .catch(console.log)
+      .finally(() => {
+        setIsAddCardProcessing(false);
+      });
   }
 
   return (
@@ -165,6 +170,7 @@ function App() {
           isOpen={isAddPlacePopupOpen}
           onClose={closeAllPopups}
           onAddPlaceSubmit={handleAddPlaceSubmit}
+          isLoading={isAddCardProcessing}
         />
         <EditAvatarPopup
           isOpen={isEditAvatarPopupOpen}
