@@ -24,6 +24,8 @@ function App() {
   const [currentUser, setCurrentUser] = React.useState({});
   const [cards, setCards] = React.useState([]);
   const [isAddCardProcessing, setIsAddCardProcessing] = React.useState(false);
+  const [isEditProfileProcessing, setIsEditProfileProcessing] =
+    React.useState(false);
 
   useEffect(() => {
     api
@@ -78,13 +80,17 @@ function App() {
   }
 
   function handleUpdateUser({ name, about }) {
+    setIsEditProfileProcessing(true);
     api
       .editProfile(name, about)
       .then((res) => {
         setCurrentUser(res);
         closeAllPopups();
       })
-      .catch(console.log);
+      .catch(console.log)
+      .finally(() => {
+        setIsEditProfileProcessing(false);
+      });
   }
 
   function handleUpdateAvatar({ avatar }) {
@@ -165,6 +171,7 @@ function App() {
           isOpen={isEditProfilePopupOpen}
           onClose={closeAllPopups}
           onUpdateUser={handleUpdateUser}
+          isLoading={isEditProfileProcessing}
         />
         <AddPlacePopup
           isOpen={isAddPlacePopupOpen}
