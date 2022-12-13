@@ -2,7 +2,7 @@ import React from "react";
 import { useState } from "react";
 import { PopupWithForm } from "./PopupWithForm";
 
-function AddPlacePopup({ onAddPlaceSubmit, isOpen, onClose }) {
+function AddPlacePopup({ onAddPlaceSubmit, isOpen, onClose, isLoading }) {
   const [cardName, setCardName] = useState("");
   const [link, setLink] = useState("");
 
@@ -19,6 +19,7 @@ function AddPlacePopup({ onAddPlaceSubmit, isOpen, onClose }) {
       onClose={onClose}
       onSubmit={handleSubmit}
       buttonText={"Create"}
+      isLoading={isLoading}
     >
       {" "}
       <fieldset className="popup__form-fieldset">
