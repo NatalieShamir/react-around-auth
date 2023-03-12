@@ -26,6 +26,7 @@ function App() {
   const [isAddCardProcessing, setIsAddCardProcessing] = React.useState(false);
   const [isEditProfileProcessing, setIsEditProfileProcessing] =
     React.useState(false);
+  const [isLoggedIn, setIsLoggedIn] = React.useState(false);
 
   useEffect(() => {
     api
