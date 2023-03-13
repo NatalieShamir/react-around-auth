@@ -10,6 +10,7 @@ import { api } from "../utils/Api";
 import { EditProfilePopup } from "./EditProfilePopup";
 import { EditAvatarPopup } from "./EditAvatarPopup";
 import { AddPlacePopup } from "./AddPlacePopup";
+import { Login } from "./Login";
 import { ProtectedRoute } from "./ProtectedRoute";
 
 function App() {
@@ -165,6 +166,7 @@ function App() {
     <UserContext.Provider value={currentUser}>
       <div className="page">
         <Header />
+        <Route path="/signin"><Login onLogin={login} /></Route>
         <Main
           onEditProfileClick={handleEditProfileClick}
           onAddPlaceClick={handleAddPlaceClick}
