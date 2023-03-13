@@ -10,6 +10,7 @@ import { api } from "../utils/Api";
 import { EditProfilePopup } from "./EditProfilePopup";
 import { EditAvatarPopup } from "./EditAvatarPopup";
 import { AddPlacePopup } from "./AddPlacePopup";
+import { ProtectedRoute } from "./ProtectedRoute";
 
 function App() {
   const [isEditAvatarPopupOpen, setIsEditAvatarPopupOpen] =
@@ -27,6 +28,12 @@ function App() {
   const [isEditProfileProcessing, setIsEditProfileProcessing] =
     React.useState(false);
   const [isLoggedIn, setIsLoggedIn] = React.useState(false);
+
+  const login = (email, password) => {
+    auth.signup(email, password)
+      .then(res => {//{token: '...'}
+      })
+  }
 
   useEffect(() => {
     api
