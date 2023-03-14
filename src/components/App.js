@@ -11,9 +11,10 @@ import { api } from "../utils/Api";
 import { EditProfilePopup } from "./EditProfilePopup";
 import { EditAvatarPopup } from "./EditAvatarPopup";
 import { AddPlacePopup } from "./AddPlacePopup";
-import auth from "../utils/auth"
+import * as auth from "../utils/auth"
 import { Login } from "./Login";
 import { ProtectedRoute } from "./ProtectedRoute";
+import { Register } from "./Register";
 
 function App() {
   const [isEditAvatarPopupOpen, setIsEditAvatarPopupOpen] =
@@ -32,9 +33,15 @@ function App() {
     React.useState(false);
   const [isLoggedIn, setIsLoggedIn] = React.useState(false);
 
-  const login = (email, password) => {
-    auth.signup(email, password)
-      .then(res => {//{token: '...'}
+  const login = (password, email) => {
+    auth.signin(password, email)
+      .then(res => { // {token: "..."}
+      })
+  }
+
+  const register = (password, email) => {
+    auth.signup(password, email)
+      .then(res => { //{data: { _id, email }}
       })
   }
 
@@ -169,6 +176,7 @@ function App() {
       <div className="page">
         <Header />
         <Route path="/signin"><Login onLogin={login} /></Route>
+        <Route path="/signup"><Register handleSubmit={register} /></Route>
         <ProtectedRoute isLoggedIn={isLoggedIn}><Main
           onEditProfileClick={handleEditProfileClick}
           onAddPlaceClick={handleAddPlaceClick}
