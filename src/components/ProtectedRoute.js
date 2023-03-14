@@ -9,4 +9,4 @@ const ProtectedRoute = ({ children, isLoggedIn }) => {
     )
 }
 
-export default ProtectedRoute;
+export { ProtectedRoute };
