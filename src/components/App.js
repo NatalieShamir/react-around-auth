@@ -5,11 +5,13 @@ import ImagePopup from "./ImagePopup";
 import { PopupWithForm } from "./PopupWithForm";
 import React from "react";
 import { useEffect } from "react";
+import { Route } from 'react-router-dom';
 import { UserContext } from "../contexts/CurrentUserContext";
 import { api } from "../utils/Api";
 import { EditProfilePopup } from "./EditProfilePopup";
 import { EditAvatarPopup } from "./EditAvatarPopup";
 import { AddPlacePopup } from "./AddPlacePopup";
+import auth from "../utils/auth"
 import { Login } from "./Login";
 import { ProtectedRoute } from "./ProtectedRoute";
 
@@ -167,7 +169,7 @@ function App() {
       <div className="page">
         <Header />
         <Route path="/signin"><Login onLogin={login} /></Route>
-        <Main
+        <ProtectedRoute isLoggedIn={isLoggedIn}><Main
           onEditProfileClick={handleEditProfileClick}
           onAddPlaceClick={handleAddPlaceClick}
           onEditAvatarClick={handleEditAvatarClick}
@@ -175,7 +177,7 @@ function App() {
           cards={cards}
           onCardLike={handleCardLike}
           onCardDelete={handleCardDelete}
-        />
+        /></ProtectedRoute>
         <Footer />
         <EditProfilePopup
           isOpen={isEditProfilePopupOpen}
