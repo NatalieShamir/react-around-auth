@@ -5,12 +5,14 @@ import ImagePopup from "./ImagePopup";
 import { PopupWithForm } from "./PopupWithForm";
 import React from "react";
 import { useEffect } from "react";
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 import { UserContext } from "../contexts/CurrentUserContext";
 import { api } from "../utils/Api";
 import { EditProfilePopup } from "./EditProfilePopup";
 import { EditAvatarPopup } from "./EditAvatarPopup";
 import { AddPlacePopup } from "./AddPlacePopup";
 import { Login } from "./Login";
+import * as auth from "../utils/auth"
 import { ProtectedRoute } from "./ProtectedRoute";
 
 function App() {
@@ -31,7 +33,7 @@ function App() {
   const [isLoggedIn, setIsLoggedIn] = React.useState(false);
 
   const login = (email, password) => {
-    auth.signup(email, password)
+    auth.signin(email, password)
       .then(res => {//{token: '...'}
       })
   }
@@ -166,40 +168,42 @@ function App() {
     <UserContext.Provider value={currentUser}>
       <div className="page">
         <Header />
-        <Route path="/signin"><Login onLogin={login} /></Route>
-        <Main
-          onEditProfileClick={handleEditProfileClick}
-          onAddPlaceClick={handleAddPlaceClick}
-          onEditAvatarClick={handleEditAvatarClick}
-          onCardClick={handleCardClick}
-          cards={cards}
-          onCardLike={handleCardLike}
-          onCardDelete={handleCardDelete}
-        />
-        <Footer />
-        <EditProfilePopup
-          isOpen={isEditProfilePopupOpen}
-          onClose={closeAllPopups}
-          onUpdateUser={handleUpdateUser}
-          isLoading={isEditProfileProcessing}
-        />
-        <AddPlacePopup
-          isOpen={isAddPlacePopupOpen}
-          onClose={closeAllPopups}
-          onAddPlaceSubmit={handleAddPlaceSubmit}
-          isLoading={isAddCardProcessing}
-        />
-        <EditAvatarPopup
-          isOpen={isEditAvatarPopupOpen}
-          onClose={closeAllPopups}
-          onUpdateAvatar={handleUpdateAvatar}
-        />
-        <PopupWithForm
-          name="confirm-delete"
-          title="Are you sure?"
-          buttonText={"Yes"}
-        />{" "}
-        <ImagePopup card={selectedCard} onClose={closeAllPopups} />
+        <Router>
+          <Route path="/signin"><Login onLogin={login} /></Route>
+          <Main
+            onEditProfileClick={handleEditProfileClick}
+            onAddPlaceClick={handleAddPlaceClick}
+            onEditAvatarClick={handleEditAvatarClick}
+            onCardClick={handleCardClick}
+            cards={cards}
+            onCardLike={handleCardLike}
+            onCardDelete={handleCardDelete}
+          />
+          <Footer />
+          <EditProfilePopup
+            isOpen={isEditProfilePopupOpen}
+            onClose={closeAllPopups}
+            onUpdateUser={handleUpdateUser}
+            isLoading={isEditProfileProcessing}
+          />
+          <AddPlacePopup
+            isOpen={isAddPlacePopupOpen}
+            onClose={closeAllPopups}
+            onAddPlaceSubmit={handleAddPlaceSubmit}
+            isLoading={isAddCardProcessing}
+          />
+          <EditAvatarPopup
+            isOpen={isEditAvatarPopupOpen}
+            onClose={closeAllPopups}
+            onUpdateAvatar={handleUpdateAvatar}
+          />
+          <PopupWithForm
+            name="confirm-delete"
+            title="Are you sure?"
+            buttonText={"Yes"}
+          />{" "}
+          <ImagePopup card={selectedCard} onClose={closeAllPopups} />
+        </Router>
       </div>
     </UserContext.Provider>
   );
