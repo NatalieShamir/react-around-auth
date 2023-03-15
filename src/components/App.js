@@ -32,10 +32,14 @@ function App() {
   const [isEditProfileProcessing, setIsEditProfileProcessing] =
     React.useState(false);
   const [isLoggedIn, setIsLoggedIn] = React.useState(false);
+  const history = useHistory();
 
   const login = (password, email) => {
     auth.signin(password, email)
       .then(res => { // {token: "..."}
+        if (res.token) {
+          history.push("/main")
+        }
       })
   }
 
@@ -177,7 +181,7 @@ function App() {
         <Header />
         <Route path="/signin"><Login onLogin={login} /></Route>
         <Route path="/signup"><Register onSubmit={register} /></Route>
-        <ProtectedRoute isLoggedIn={isLoggedIn}><Main
+        <ProtectedRoute path="/main" isLoggedIn={isLoggedIn}><Main
           onEditProfileClick={handleEditProfileClick}
           onAddPlaceClick={handleAddPlaceClick}
           onEditAvatarClick={handleEditAvatarClick}
