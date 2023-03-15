@@ -53,6 +53,19 @@ function App() {
   }
 
   useEffect(() => {
+    const token = localStorage.getItem("token")
+
+    if (token) {
+      auth.checkToken(token)
+        .then(res => { //{data: { _id, email }}
+          const { data: { _id, email } } = res
+          setCurrentUser({ _id, email })
+          history.push("/main")
+        })
+    }
+  }, [])
+
+  useEffect(() => {
     api
       .getUserInfo()
       .then((res) => {
