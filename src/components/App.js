@@ -39,8 +39,8 @@ function App() {
       .then(res => { // {token: "..."}
         if (res.token) {
           setIsLoggedIn(true)
+          localStorage.setItem("token", res.token)
           history.push("/main")
-          localStorage.setItem("token", token)
         }
       })
   }
