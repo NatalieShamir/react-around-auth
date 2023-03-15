@@ -38,6 +38,7 @@ function App() {
     auth.signin(password, email)
       .then(res => { // {token: "..."}
         if (res.token) {
+          setIsLoggedIn(true)
           history.push("/main")
         }
       })
