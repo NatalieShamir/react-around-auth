@@ -48,6 +48,7 @@ function App() {
   const register = (password, email) => {
     auth.signup(password, email)
       .then(res => { //{data: { _id, email }}
+        history.push("/signin")
       })
   }
 
