@@ -1,12 +1,15 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
-function Register({ onRegister }) {
-    const [email, setEmail] = useState("");
+function Register({ onSubmit }) {
     const [password, setPassword] = useState("");
+    const [confirmPassword, setConfirmPassword] = useState("");
 
-    const handleRegister = () => {
-        onRegister(email, password)
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        if (password === confirmPassword) {
+            onSubmit()
+        }
     }
 
     return (
@@ -27,7 +30,7 @@ function Register({ onRegister }) {
                     onChange={e => setPassword(e.target.value)} />
             </form>
             <div className="register__button-container">
-                <button onClick={handleRegister} className="register__link">Sign up</button>
+                <button onClick={handleSubmit} className="register__link">Sign up</button>
             </div>
             {/* link to login page */}
             <div className="register__signin">

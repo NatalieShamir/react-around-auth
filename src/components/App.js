@@ -176,7 +176,7 @@ function App() {
       <div className="page">
         <Header />
         <Route path="/signin"><Login onLogin={login} /></Route>
-        <Route path="/signup"><Register onRegister={register} /></Route>
+        <Route path="/signup"><Register onSubmit={register} /></Route>
         <ProtectedRoute isLoggedIn={isLoggedIn}><Main
           onEditProfileClick={handleEditProfileClick}
           onAddPlaceClick={handleAddPlaceClick}
