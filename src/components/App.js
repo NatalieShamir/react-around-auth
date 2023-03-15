@@ -40,6 +40,7 @@ function App() {
         if (res.token) {
           setIsLoggedIn(true)
           history.push("/main")
+          localStorage.setItem("token", token)
         }
       })
   }
