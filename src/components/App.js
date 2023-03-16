@@ -199,7 +199,7 @@ function App() {
         <Header />
         <Route path="/signin"><Login onLogin={login} /></Route>
         <Route path="/signup"><Register onSubmit={register} /></Route>
-        <ProtectedRoute path="/main" isCheckingToken={isCheckingToken} isLoggedIn={isLoggedIn}><Main
+        <ProtectedRoute isCheckingToken={isCheckingToken} isLoggedIn={isLoggedIn}><Route path="/main"><Main
           onEditProfileClick={handleEditProfileClick}
           onAddPlaceClick={handleAddPlaceClick}
           onEditAvatarClick={handleEditAvatarClick}
@@ -207,7 +207,7 @@ function App() {
           cards={cards}
           onCardLike={handleCardLike}
           onCardDelete={handleCardDelete}
-        /></ProtectedRoute>
+        /></Route></ProtectedRoute>
         <Footer />
         <EditProfilePopup
           isOpen={isEditProfilePopupOpen}
