@@ -61,6 +61,7 @@ function App() {
         .then(res => { //{data: { _id, email }}
           const { data: { _id, email } } = res
           setCurrentUser({ _id, email })
+          setIsCheckingToken(false)
           history.push("/main")
         })
     }
