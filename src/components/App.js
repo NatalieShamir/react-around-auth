@@ -64,6 +64,7 @@ function App() {
           setIsCheckingToken(false)
           history.push("/main")
         })
+        .finally(() => setIsCheckingToken(false))
     }
   }, [])
 
