@@ -1,12 +1,17 @@
 import React from 'react';
-import { Route, Redirect } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
+import LoadingSpinner from "./LoadingSpinner";
 
-const ProtectedRoute = ({ children, isLoggedIn }) => {
-    return (
-        <Route>
-            {isLoggedIn ? children : <Redirect to={"/signin"} />}
-        </Route>
-    )
+const ProtectedRoute = ({ children, isCheckingToken, isLoggedIn }) => {
+    if (isCheckingToken) {
+        return <LoadingSpinner />
+    }
+
+    if (isLoggedIn) {
+        return children
+    }
+
+    return <Redirect to="/signin" />
 }
 
 export { ProtectedRoute };
