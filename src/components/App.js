@@ -5,7 +5,7 @@ import ImagePopup from "./ImagePopup";
 import { PopupWithForm } from "./PopupWithForm";
 import React from "react";
 import { useEffect } from "react";
-import { Route, useHistory } from 'react-router-dom';
+import { Route, useHistory, Switch } from 'react-router-dom';
 import { UserContext } from "../contexts/CurrentUserContext";
 import { api } from "../utils/Api";
 import { EditProfilePopup } from "./EditProfilePopup";
@@ -196,44 +196,47 @@ function App() {
 
   return (
     <UserContext.Provider value={currentUser}>
-      <div className="page">
-        <Header />
-        <Route path="/signin"><Login onLogin={login} /></Route>
-        <Route path="/signup"><Register onSubmit={register} /></Route>
-        <ProtectedRoute isCheckingToken={isCheckingToken} isLoggedIn={isLoggedIn}><Route path="/main"><Main
-          onEditProfileClick={handleEditProfileClick}
-          onAddPlaceClick={handleAddPlaceClick}
-          onEditAvatarClick={handleEditAvatarClick}
-          onCardClick={handleCardClick}
-          cards={cards}
-          onCardLike={handleCardLike}
-          onCardDelete={handleCardDelete}
-        /></Route></ProtectedRoute>
-        <Footer />
-        <EditProfilePopup
-          isOpen={isEditProfilePopupOpen}
-          onClose={closeAllPopups}
-          onUpdateUser={handleUpdateUser}
-          isLoading={isEditProfileProcessing}
-        />
-        <AddPlacePopup
-          isOpen={isAddPlacePopupOpen}
-          onClose={closeAllPopups}
-          onAddPlaceSubmit={handleAddPlaceSubmit}
-          isLoading={isAddCardProcessing}
-        />
-        <EditAvatarPopup
-          isOpen={isEditAvatarPopupOpen}
-          onClose={closeAllPopups}
-          onUpdateAvatar={handleUpdateAvatar}
-        />
-        <PopupWithForm
-          name="confirm-delete"
-          title="Are you sure?"
-          buttonText={"Yes"}
-        />{" "}
-        <ImagePopup card={selectedCard} onClose={closeAllPopups} />
-      </div>
+      <Switch>
+        <div className="page">
+          <Header />
+          <Route path="/signin"><Login onLogin={login} /></Route>
+          <Route path="/signup"><Register onSubmit={register} /></Route>
+          <ProtectedRoute isCheckingToken={isCheckingToken} isLoggedIn={isLoggedIn}><Route path="/main"><Main
+            onEditProfileClick={handleEditProfileClick}
+            onAddPlaceClick={handleAddPlaceClick}
+            onEditAvatarClick={handleEditAvatarClick}
+            onCardClick={handleCardClick}
+            cards={cards}
+            onCardLike={handleCardLike}
+            onCardDelete={handleCardDelete}
+          /></Route></ProtectedRoute>
+
+          <Footer />
+          <EditProfilePopup
+            isOpen={isEditProfilePopupOpen}
+            onClose={closeAllPopups}
+            onUpdateUser={handleUpdateUser}
+            isLoading={isEditProfileProcessing}
+          />
+          <AddPlacePopup
+            isOpen={isAddPlacePopupOpen}
+            onClose={closeAllPopups}
+            onAddPlaceSubmit={handleAddPlaceSubmit}
+            isLoading={isAddCardProcessing}
+          />
+          <EditAvatarPopup
+            isOpen={isEditAvatarPopupOpen}
+            onClose={closeAllPopups}
+            onUpdateAvatar={handleUpdateAvatar}
+          />
+          <PopupWithForm
+            name="confirm-delete"
+            title="Are you sure?"
+            buttonText={"Yes"}
+          />{" "}
+          <ImagePopup card={selectedCard} onClose={closeAllPopups} />
+        </div>
+      </Switch>
     </UserContext.Provider>
   );
 }
