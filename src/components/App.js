@@ -199,7 +199,7 @@ function App() {
         <Header />
         <Route path="/signin"><Login onLogin={login} /></Route>
         <Route path="/signup"><Register onSubmit={register} /></Route>
-        <ProtectedRoute path="/main" isLoggedIn={isLoggedIn}><Main
+        <ProtectedRoute path="/main" isCheckingToken={isCheckingToken} isLoggedIn={isLoggedIn}><Main
           onEditProfileClick={handleEditProfileClick}
           onAddPlaceClick={handleAddPlaceClick}
           onEditAvatarClick={handleEditAvatarClick}
