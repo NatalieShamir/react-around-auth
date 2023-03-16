@@ -33,6 +33,7 @@ function App() {
     React.useState(false);
   const [isLoggedIn, setIsLoggedIn] = React.useState(false);
   const history = useHistory();
+  const [isCheckingToken, setIsCheckingToken] = React.useState(true)
 
   const login = (password, email) => {
     auth.signin(password, email)
