@@ -11,12 +11,13 @@ function Login({ onLogin }) {
 
     return (
         <div className="login">
-            <p className="login__welcome">Log in</p>
             <form className="login__form" onSubmit={handleLogin}>
-                <label for="email">Email</label>
-                <input value={email} onChange={e => setEmail(e.target.value)} />
-                <label for="password">Password</label>
-                <input value={password} onChange={e => setPassword(e.target.value)} />
+                <h3 className="login__welcome">Log in</h3>
+                <label for="email"></label>
+                <input type="text" id="email-input" className="login__input" placeholder="Email"
+                    value={email} onChange={e => setEmail(e.target.value)} />
+                <label for="password"></label>
+                <input type="password" id="password-input" className="login__input" placeholder="Password" value={password} onChange={e => setPassword(e.target.value)} />
                 <div className="login__button-container">
                     <button type="submit" className="login__link">
                         Log in
@@ -25,9 +26,9 @@ function Login({ onLogin }) {
             </form>
 
             <div className="login__signup">
-                <p>Not a member yet?</p>
-                <Link to="/register" className="signup__link">
-                    Sign up here!
+                <p className="login__signup-text">Not a member yet?</p>
+                <Link style={{ textDecoration: 'none' }} to="/signup" >
+                    <p className="login__signup-link"> Sign up here!</p>
                 </Link>
             </div>
         </div>
