@@ -15,6 +15,7 @@ import * as auth from "../utils/auth"
 import { Login } from "./Login";
 import { ProtectedRoute } from "./ProtectedRoute";
 import { Register } from "./Register";
+import { InfoTooltip } from "./InfoTooltip";
 
 function App() {
   const [isEditAvatarPopupOpen, setIsEditAvatarPopupOpen] =
@@ -35,7 +36,7 @@ function App() {
   const history = useHistory();
   const [isCheckingToken, setIsCheckingToken] = React.useState(true)
 
-  const login = (password, email) => {
+  function handleLogin(password, email) {
     auth.signin(password, email)
       .then(res => { // {token: "..."}
         if (res.token) {
@@ -46,7 +47,7 @@ function App() {
       })
   }
 
-  const register = (password, email) => {
+  function handleRegister(password, email) {
     auth.signup(password, email)
       .then(res => { //{data: { _id, email }}
         history.push("/signin")
@@ -197,10 +198,11 @@ function App() {
   return (
     <UserContext.Provider value={currentUser}>
       <Switch>
+        {/* <InfoTooltip /> */}
         <div className="page">
           <Header />
-          <Route path="/signin"><Login onLogin={login} /></Route>
-          <Route path="/signup"><Register onSubmit={register} /></Route>
+          <Route path="/signin"><Login onLogin={handleLogin} /></Route>
+          <Route path="/signup"><Register onSubmit={handleRegister} /></Route>
           <ProtectedRoute isCheckingToken={isCheckingToken} isLoggedIn={isLoggedIn}><Route path="/main"><Main
             onEditProfileClick={handleEditProfileClick}
             onAddPlaceClick={handleAddPlaceClick}
@@ -209,9 +211,9 @@ function App() {
             cards={cards}
             onCardLike={handleCardLike}
             onCardDelete={handleCardDelete}
-          /></Route></ProtectedRoute>
+          />
+            <Footer /></Route></ProtectedRoute>
 
-          <Footer />
           <EditProfilePopup
             isOpen={isEditProfilePopupOpen}
             onClose={closeAllPopups}
