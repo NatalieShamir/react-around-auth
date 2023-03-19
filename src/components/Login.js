@@ -14,7 +14,7 @@ function Login({ onLogin }) {
             <form className="login__form" onSubmit={handleLogin}>
                 <h3 className="login__welcome">Log in</h3>
                 <label for="email"></label>
-                <input type="text" id="email-input" className="login__input" placeholder="Email"
+                <input type="email" id="email-input" className="login__input" placeholder="Email"
                     value={email} onChange={e => setEmail(e.target.value)} />
                 <label for="password"></label>
                 <input type="password" id="password-input" className="login__input" placeholder="Password" value={password} onChange={e => setPassword(e.target.value)} />
