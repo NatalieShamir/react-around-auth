@@ -11,32 +11,31 @@ function Register({ onSubmit }) {
         if (password === confirmPassword) {
             onSubmit()
         }
+
     }
 
     return (
         <div className="register">
-            <p className="register__welcome">
-                Sign up
-            </p>
+
             <form className="register__form">
-                <label>
-                    Email
-                </label>
-                <input name="email" type="email" value={email}
+                <h3 className="register__welcome">
+                    Sign up
+                </h3>
+                <label for="email"></label>
+                <input name="email" type="email" id="email-input" className="register__input" placeholder="Email" value={email}
                     onChange={e => setEmail(e.target.value)} />
-                <label>
-                    Password
-                </label>
-                <input name="password" type="password" value={password}
+                <label for="password"></label>
+                <input name="password" type="password" id="password-input" className="register__input" placeholder="Password" value={password}
                     onChange={e => setPassword(e.target.value)} />
+                <div className="register__button-container">
+                    <button onClick={handleSubmit} className="register__link">Sign up</button>
+                </div>
             </form>
-            <div className="register__button-container">
-                <button onClick={handleSubmit} className="register__link">Sign up</button>
-            </div>
+
             {/* link to login page */}
             <div className="register__signin">
-                <p>Already a member?</p>
-                <Link to="login" className="register__login-link">Log in here!</Link>
+                <p className="register__signin-text">Already a member?</p>
+                <Link style={{ textDecoration: 'none' }} to="/signin" className="register__login-link">Log in here!</Link>
             </div>
         </div>
     )
