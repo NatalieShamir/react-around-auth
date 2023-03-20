@@ -22,17 +22,30 @@ export const signup = (email, password) => {
 export const signin = (password, email) => {
     return fetch(`${BASE_URL}/signin`, {
         method: "POST",
-        body: {
-            password, email
-        }
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ email, password })
     })
+        .then((response) => response.json())
+        .then((data) => {
+            if (data.token) {
+                localStorage.setItem("token", data.token);
+                return data;
+            } else {
+                return;
+            }
+        });
 }
 
 export const checkToken = (token) => {
     return fetch(`${BASE_URL}/users/me`, {
+        method: 'GET',
         headers: {
-            "Content-Type": "application/json",
-            "Authorization": `Bearer ${token}`
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${token}`,
         }
     })
+        .then(res => res.json())
+        .then(data => data)
 }
