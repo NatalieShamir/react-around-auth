@@ -39,9 +39,9 @@ function App() {
   const history = useHistory();
 
 
-  function handleLogin(password, email) {
-    auth.signin(password, email)
-      .then(res => { // {token: "..."}
+  function handleLogin({ email, password }) {
+    auth.signin(email, password)
+      .then(res => {
         if (res.token) {
           setIsLoggedIn(true)
           localStorage.setItem("token", res.token)
@@ -50,10 +50,24 @@ function App() {
       })
   }
 
-  function handleRegister(password, email) {
-    auth.signup(password, email)
-      .then(res => { //{data: { _id, email }}
-        history.push("/signin")
+  function handleRegister({ email, password }) {
+    auth.signup(email, password)
+      .then(res => {
+        setIsInfoTooltipOpen(true);
+
+        if (res.data._id) {
+          setIsSuccessful("success");
+          setTimeout(() => {
+            history.push("/signin");
+            setIsInfoTooltipOpen(false);
+          }, 3000)
+        } else {
+          setIsSuccessful("fail");
+        }
+      })
+      .catch((err) => {
+        setIsSuccessful("fail");
+        setIsInfoTooltipOpen(true);
       })
   }
 
