@@ -199,7 +199,6 @@ function App() {
   return (
     <UserContext.Provider value={currentUser}>
       <Switch>
-        {/* <InfoTooltip /> */}
         <div className="page">
           <Header />
           <Route path="/signin"><Login onLogin={handleLogin} /></Route>
@@ -239,6 +238,9 @@ function App() {
           />{" "}
           <ImagePopup card={selectedCard} onClose={closeAllPopups} />
         </div>
+        <InfoTooltip
+          isOpen={isInfoTooltipOpen}
+          onClose={closeAllPopups} />
       </Switch>
     </UserContext.Provider>
   );
