@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 function Register({ onSubmit }) {
-    const [email, setEmail] = useState('');
+    const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [confirmPassword, setConfirmPassword] = useState("");
 
@@ -11,7 +11,6 @@ function Register({ onSubmit }) {
         if (password === confirmPassword) {
             onSubmit()
         }
-
     }
 
     return (
@@ -32,7 +31,6 @@ function Register({ onSubmit }) {
                 </div>
             </form>
 
-            {/* link to login page */}
             <div className="register__signin">
                 <p className="register__signin-text">Already a member?</p>
                 <Link style={{ textDecoration: 'none' }} to="/signin" className="register__login-link">Log in here!</Link>
