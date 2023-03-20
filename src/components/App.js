@@ -106,6 +106,7 @@ function App() {
       name: "",
       link: "",
     });
+    setIsInfoTooltipOpen(false);
   }
 
   useEffect(() => {
