@@ -46,7 +46,14 @@ function App() {
           setIsLoggedIn(true)
           localStorage.setItem("token", res.token)
           history.push("/main")
+        } else {
+          setIsSuccessful("fail");
+          setIsInfoTooltipOpen(true);
         }
+      })
+      .catch((err) => {
+        setIsSuccessful("fail");
+        setIsInfoTooltipOpen(true);
       })
   }
 
