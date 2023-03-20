@@ -242,7 +242,8 @@ function App() {
         <ImagePopup card={selectedCard} onClose={closeAllPopups} />
         <InfoTooltip
           isOpen={isInfoTooltipOpen}
-          onClose={closeAllPopups} />
+          onClose={closeAllPopups}
+          isSuccessful={isSuccessful} />
       </div>
     </UserContext.Provider >
   );
