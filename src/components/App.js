@@ -34,8 +34,10 @@ function App() {
   const [isEditProfileProcessing, setIsEditProfileProcessing] =
     React.useState(false);
   const [isLoggedIn, setIsLoggedIn] = React.useState(false);
+  const [isCheckingToken, setIsCheckingToken] = React.useState(true);
+  const [isSuccessful, setIsSuccessful] = React.useState(true);
   const history = useHistory();
-  const [isCheckingToken, setIsCheckingToken] = React.useState(true)
+
 
   function handleLogin(password, email) {
     auth.signin(password, email)
@@ -199,9 +201,9 @@ function App() {
 
   return (
     <UserContext.Provider value={currentUser}>
-      <Switch>
-        <div className="page">
-          <Header />
+      <div className="page">
+        <Header />
+        <Switch>
           <Route path="/signin"><Login onLogin={handleLogin} /></Route>
           <Route path="/signup"><Register onSubmit={handleRegister} /></Route>
           <ProtectedRoute isCheckingToken={isCheckingToken} isLoggedIn={isLoggedIn}><Route path="/main"><Main
@@ -214,36 +216,35 @@ function App() {
             onCardDelete={handleCardDelete}
           />
             <Footer /></Route></ProtectedRoute>
-
-          <EditProfilePopup
-            isOpen={isEditProfilePopupOpen}
-            onClose={closeAllPopups}
-            onUpdateUser={handleUpdateUser}
-            isLoading={isEditProfileProcessing}
-          />
-          <AddPlacePopup
-            isOpen={isAddPlacePopupOpen}
-            onClose={closeAllPopups}
-            onAddPlaceSubmit={handleAddPlaceSubmit}
-            isLoading={isAddCardProcessing}
-          />
-          <EditAvatarPopup
-            isOpen={isEditAvatarPopupOpen}
-            onClose={closeAllPopups}
-            onUpdateAvatar={handleUpdateAvatar}
-          />
-          <PopupWithForm
-            name="confirm-delete"
-            title="Are you sure?"
-            buttonText={"Yes"}
-          />{" "}
-          <ImagePopup card={selectedCard} onClose={closeAllPopups} />
-        </div>
+        </Switch>
+        <EditProfilePopup
+          isOpen={isEditProfilePopupOpen}
+          onClose={closeAllPopups}
+          onUpdateUser={handleUpdateUser}
+          isLoading={isEditProfileProcessing}
+        />
+        <AddPlacePopup
+          isOpen={isAddPlacePopupOpen}
+          onClose={closeAllPopups}
+          onAddPlaceSubmit={handleAddPlaceSubmit}
+          isLoading={isAddCardProcessing}
+        />
+        <EditAvatarPopup
+          isOpen={isEditAvatarPopupOpen}
+          onClose={closeAllPopups}
+          onUpdateAvatar={handleUpdateAvatar}
+        />
+        <PopupWithForm
+          name="confirm-delete"
+          title="Are you sure?"
+          buttonText={"Yes"}
+        />{" "}
+        <ImagePopup card={selectedCard} onClose={closeAllPopups} />
         <InfoTooltip
           isOpen={isInfoTooltipOpen}
           onClose={closeAllPopups} />
-      </Switch>
-    </UserContext.Provider>
+      </div>
+    </UserContext.Provider >
   );
 }
 
