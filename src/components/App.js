@@ -34,7 +34,7 @@ function App() {
   const [isEditProfileProcessing, setIsEditProfileProcessing] =
     React.useState(false);
   const [isLoggedIn, setIsLoggedIn] = React.useState(false);
-  const [isCheckingToken, setIsCheckingToken] = React.useState(true);
+  const [email, setEmail] = React.useState("");
   const [isSuccessful, setIsSuccessful] = React.useState(true);
   const history = useHistory();
 
@@ -246,7 +246,7 @@ function App() {
         <Switch>
           <Route path="/signin"><Login onLogin={handleLogin} /></Route>
           <Route path="/signup"><Register onSubmit={handleRegister} /></Route>
-          <ProtectedRoute isCheckingToken={isCheckingToken} isLoggedIn={isLoggedIn}><Route path="/main"><Main
+          <ProtectedRoute path="/main" isLoggedIn={isLoggedIn}><Main
             onEditProfileClick={handleEditProfileClick}
             onAddPlaceClick={handleAddPlaceClick}
             onEditAvatarClick={handleEditAvatarClick}
@@ -255,7 +255,7 @@ function App() {
             onCardLike={handleCardLike}
             onCardDelete={handleCardDelete}
           />
-            <Footer /></Route></ProtectedRoute>
+            <Footer /></ProtectedRoute>
         </Switch>
         <EditProfilePopup
           isOpen={isEditProfilePopupOpen}
