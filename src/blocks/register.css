@@ -63,6 +63,10 @@
   text-align: center;
 }
 
+.register__link:hover {
+  background: rgba(255, 255, 255, 0.85);
+}
+
 .register__signin {
   width: 358px;
   margin-top: 15px;
