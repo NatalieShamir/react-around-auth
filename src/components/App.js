@@ -64,6 +64,7 @@ function App() {
       .then(res => {
         if (res.token) {
           setIsLoggedIn(true)
+          setEmail(email)
           localStorage.setItem("token", res.token)
           history.push("/")
         } else {
