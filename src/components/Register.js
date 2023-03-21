@@ -20,10 +20,10 @@ function Register({ onSubmit }) {
                 <h3 className="register__welcome">
                     Sign up
                 </h3>
-                <label for="email"></label>
+                <label htmlFor="email"></label>
                 <input name="email" type="email" id="email-input" className="register__input" placeholder="Email" value={email}
                     onChange={e => setEmail(e.target.value)} />
-                <label for="password"></label>
+                <label htmlFor="password"></label>
                 <input name="password" type="password" id="password-input" className="register__input" placeholder="Password" value={password}
                     onChange={e => setPassword(e.target.value)} />
                 <div className="register__button-container">

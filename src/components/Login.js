@@ -13,10 +13,10 @@ function Login({ onLogin }) {
         <div className="login">
             <form className="login__form" onSubmit={handleLogin}>
                 <h3 className="login__welcome">Log in</h3>
-                <label for="email"></label>
+                <label htmlFor="email"></label>
                 <input type="email" id="email-input" className="login__input" placeholder="Email"
                     value={email} onChange={e => setEmail(e.target.value)} />
-                <label for="password"></label>
+                <label htmlFor="password"></label>
                 <input type="password" id="password-input" className="login__input" placeholder="Password" value={password} onChange={e => setPassword(e.target.value)} />
                 <div className="login__button-container">
                     <button type="submit" className="login__link">
