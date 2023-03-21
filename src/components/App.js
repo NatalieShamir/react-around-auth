@@ -65,7 +65,7 @@ function App() {
         if (res.token) {
           setIsLoggedIn(true)
           localStorage.setItem("token", res.token)
-          history.push("/main")
+          history.push("/")
         } else {
           setIsSuccessful("fail");
           setIsInfoTooltipOpen(true);
@@ -105,7 +105,7 @@ function App() {
         .then(res => {
           const { data: { _id, email } } = res
           setCurrentUser({ _id, email })
-          history.push("/main")
+          history.push("/")
         })
     }
   }, [])
@@ -245,7 +245,7 @@ function App() {
         <Switch>
           <Route path="/signin"><Login onLogin={handleLogin} /></Route>
           <Route path="/signup"><Register onSubmit={handleRegister} /></Route>
-          <ProtectedRoute exact path="/main" isLoggedIn={isLoggedIn}><Main
+          <ProtectedRoute exact path="/" isLoggedIn={isLoggedIn}><Main
             onEditProfileClick={handleEditProfileClick}
             onAddPlaceClick={handleAddPlaceClick}
             onEditAvatarClick={handleEditAvatarClick}
