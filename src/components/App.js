@@ -11,7 +11,7 @@ import { api } from "../utils/Api";
 import { EditProfilePopup } from "./EditProfilePopup";
 import { EditAvatarPopup } from "./EditAvatarPopup";
 import { AddPlacePopup } from "./AddPlacePopup";
-import * as auth from "../utils/auth"
+import * as auth from "../utils/auth";
 import { Login } from "./Login";
 import { ProtectedRoute } from "./ProtectedRoute";
 import { Register } from "./Register";
@@ -38,25 +38,6 @@ function App() {
   const [isSuccessful, setIsSuccessful] = React.useState(true);
   const history = useHistory();
 
-
-  function handleLogin({ email, password }) {
-    auth.signin(email, password)
-      .then(res => {
-        if (res.token) {
-          setIsLoggedIn(true)
-          localStorage.setItem("token", res.token)
-          history.push("/main")
-        } else {
-          setIsSuccessful("fail");
-          setIsInfoTooltipOpen(true);
-        }
-      })
-      .catch((err) => {
-        setIsSuccessful("fail");
-        setIsInfoTooltipOpen(true);
-      })
-  }
-
   function handleRegister({ email, password }) {
     auth.signup(email, password)
       .then(res => {
@@ -78,12 +59,50 @@ function App() {
       })
   }
 
+  function handleLogin({ email, password }) {
+    auth.signin(email, password)
+      .then(res => {
+        if (res.token) {
+          setIsLoggedIn(true)
+          localStorage.setItem("token", res.token)
+          history.push("/main")
+        } else {
+          setIsSuccessful("fail");
+          setIsInfoTooltipOpen(true);
+        }
+      })
+      .catch((err) => {
+        setIsSuccessful("fail");
+        setIsInfoTooltipOpen(true);
+      })
+  }
+
+  useEffect(() => {
+    if (!isLoggedIn) {
+      return
+    }
+    api
+      .getUserInfo()
+      .then((res) => {
+        setCurrentUser(res);
+      })
+      .catch(console.log);
+
+    api
+      .getCardList()
+      .then((res) => {
+        setCards(res);
+      })
+      .catch(console.log);
+  }, [isLoggedIn]);
+
+
   useEffect(() => {
     const token = localStorage.getItem("token")
 
     if (token) {
       auth.checkToken(token)
-        .then(res => { //{data: { _id, email }}
+        .then(res => {
           const { data: { _id, email } } = res
           setCurrentUser({ _id, email })
           setIsCheckingToken(false)
