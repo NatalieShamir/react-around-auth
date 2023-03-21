@@ -35,7 +35,8 @@ export const signin = (password, email) => {
             } else {
                 return;
             }
-        });
+        })
+        .catch((err) => console.log(err));
 }
 
 export const checkToken = (token) => {
