@@ -283,6 +283,13 @@ function App() {
           isOpen={isInfoTooltipOpen}
           onClose={closeAllPopups}
           isSuccessful={isSuccessful} />
+        <Route>
+          {
+            isLoggedIn
+              ? <Redirect to="/" />
+              : <Redirect to="/signin" />
+          }
+        </Route>
       </div>
     </UserContext.Provider >
   );
