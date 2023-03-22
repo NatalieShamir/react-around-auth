@@ -38,7 +38,7 @@ function App() {
   const [isSuccessful, setIsSuccessful] = React.useState(true);
   const history = useHistory();
 
-  function handleRegister({ email, password }) {
+  function onRegister(email, password) {
     auth.signup(email, password)
       .then(res => {
         setIsInfoTooltipOpen(true);
@@ -59,7 +59,7 @@ function App() {
       })
   }
 
-  function handleLogin({ email, password }) {
+  function onLogin(email, password) {
     auth.signin(email, password)
       .then(res => {
         if (res.token) {
@@ -77,6 +77,19 @@ function App() {
         setIsInfoTooltipOpen(true);
       })
   }
+
+  useEffect(() => {
+    const token = localStorage.getItem("token")
+
+    if (token) {
+      auth.checkToken(token)
+        .then(res => {
+          const { data: { _id, email } } = res
+          setCurrentUser({ _id, email })
+          history.push("/")
+        })
+    }
+  }, [])
 
   useEffect(() => {
     if (!isLoggedIn) {
@@ -98,35 +111,22 @@ function App() {
   }, [isLoggedIn]);
 
 
-  useEffect(() => {
-    const token = localStorage.getItem("token")
-
-    if (token) {
-      auth.checkToken(token)
-        .then(res => {
-          const { data: { _id, email } } = res
-          setCurrentUser({ _id, email })
-          history.push("/")
+  /*   useEffect(() => {
+      api
+        .getUserInfo()
+        .then((res) => {
+          setCurrentUser(res);
         })
-    }
-  }, [])
-
-  useEffect(() => {
-    api
-      .getUserInfo()
-      .then((res) => {
-        setCurrentUser(res);
-      })
-      .catch(console.log);
-
-    api
-      .getCardList()
-      .then((res) => {
-        setCards(res);
-      })
-      .catch(console.log);
-  }, []);
-
+        .catch(console.log);
+  
+      api
+        .getCardList()
+        .then((res) => {
+          setCards(res);
+        })
+        .catch(console.log);
+    }, []);
+   */
   function handleEditAvatarClick() {
     setIsEditAvatarPopupOpen(true);
   }
@@ -244,8 +244,8 @@ function App() {
         <Header loggedIn={isLoggedIn} text="Sign up" path="/signup" email={email}
         />
         <Switch>
-          <Route path="/signin"><Login onLogin={handleLogin} /></Route>
-          <Route path="/signup"><Register onSubmit={handleRegister} /></Route>
+          <Route path="/signup"><Register onSubmit={onRegister} /></Route>
+          <Route path="/signin"><Login onLogin={onLogin} /></Route>
           <ProtectedRoute exact path="/" isLoggedIn={isLoggedIn}><Main
             onEditProfileClick={handleEditProfileClick}
             onAddPlaceClick={handleAddPlaceClick}
