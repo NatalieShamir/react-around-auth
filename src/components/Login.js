@@ -5,13 +5,14 @@ function Login({ onLogin }) {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
-    const handleLogin = () => {
+    const handleLogin = (e) => {
+        e.preventDefault();
         onLogin(email, password)
     }
 
     return (
         <div className="login">
-            <form className="login__form" onSubmit={handleLogin}>
+            <form className="login__form" >
                 <h3 className="login__welcome">Log in</h3>
                 <label htmlFor="email"></label>
                 <input type="email" id="email-input" className="login__input" placeholder="Email"
@@ -19,7 +20,7 @@ function Login({ onLogin }) {
                 <label htmlFor="password"></label>
                 <input type="password" id="password-input" className="login__input" placeholder="Password" value={password} onChange={e => setPassword(e.target.value)} />
                 <div className="login__button-container">
-                    <button type="submit" className="login__link">
+                    <button onClick={handleLogin} type="submit" className="login__link">
                         Log in
                     </button>
                 </div>
