@@ -38,7 +38,7 @@ function App() {
   const [isSuccessful, setIsSuccessful] = React.useState(true);
   const history = useHistory();
 
-  function onRegister(email, password) {
+  function register(email, password) {
     auth.signup(email, password)
       .then(res => {
         setIsInfoTooltipOpen(true);
@@ -59,7 +59,7 @@ function App() {
       })
   }
 
-  function onLogin(email, password) {
+  function login(email, password) {
     auth.signin(email, password)
       .then(res => {
         if (res.token) {
@@ -244,8 +244,8 @@ function App() {
         <Header loggedIn={isLoggedIn} text="Sign up" path="/signup" email={email}
         />
         <Switch>
-          <Route path="/signup"><Register onSubmit={onRegister} /></Route>
-          <Route path="/signin"><Login onLogin={onLogin} /></Route>
+          <Route path="/signup"><Register onRegister={register} /></Route>
+          <Route path="/signin"><Login onLogin={login} /></Route>
           <ProtectedRoute exact path="/" isLoggedIn={isLoggedIn}><Main
             onEditProfileClick={handleEditProfileClick}
             onAddPlaceClick={handleAddPlaceClick}
