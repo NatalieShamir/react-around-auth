@@ -166,6 +166,33 @@
   bottom: 181px;
 }
 
+.popup__tooltip-info {
+  width: 430px;
+  height: 330px;
+  background: #ffffff;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.popup__tooltip-image {
+  width: 120px;
+  height: 120px;
+  margin: 60px auto 32px auto;
+}
+
+.popup__tooltip-status {
+  max-width: 358px;
+  margin: 0 auto;
+  font-family: "Inter", "Arial", sans-serif;
+  font-weight: 900;
+  font-size: 24px;
+  line-height: 29.05px;
+  text-align: center;
+  color: #000000;
+}
+
 @media screen and (max-width: 600px) {
   .popup__close-button {
     background-size: contain;
