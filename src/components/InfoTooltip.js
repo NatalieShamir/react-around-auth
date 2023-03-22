@@ -15,14 +15,14 @@ function InfoTooltip({ isOpen, onClose, isSuccessful }) {
                     className="popup__close-button"
                 ></button>
                 {isSuccessful === "successful" ? (
-                    <div>
-                        <img className="popup__image-tooltip" src={registrationSuccess} alt="A tick symbol" />
-                        <p className="popup__status-message">Success! You have been registered.</p>
+                    <div className="popup__tooltip-info">
+                        <img className="popup__tooltip-image" src={registrationSuccess} alt="A tick symbol" />
+                        <p className="popup__tooltip-status">Success! You have been registered.</p>
                     </div>
                 ) : (
-                    <div>
-                        <img className="popup__image-tooltip" src={registrationFail} alt="A red x symbol" />
-                        <p className="popup__status-message">Oops, something went wrong! Please try again.</p>
+                    <div className="popup__tooltip-info">
+                        <img className="popup__tooltip-image" src={registrationFail} alt="A red x symbol" />
+                        <p className="popup__tooltip-status">Oops, something went wrong! Please try again.</p>
                     </div>
                 )}
             </div>
