@@ -78,6 +78,13 @@ function App() {
       })
   }
 
+  function signOut() {
+    localStorage.removeItem("token")
+    setIsLoggedIn(false)
+    setEmail("")
+    history.push("/signin")
+  }
+
   useEffect(() => {
     const token = localStorage.getItem("token")
 
