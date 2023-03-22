@@ -23,7 +23,7 @@ export default function Header({ isLoggedIn, email, signOut }) {
         ) : (
           <div>
             <Link to={location.pathname === "/signin" ? "/signup" : "/signin"} className="header__link"></Link>
-            {location.pathname === "/signin" ? "Sign up" : "Sign In"}
+            {location.pathname === "/signin" ? "Sign up" : "Log In"}
           </div>
         )}
       </div>
