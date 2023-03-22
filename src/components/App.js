@@ -118,22 +118,6 @@ function App() {
   }, [isLoggedIn]);
 
 
-  /*   useEffect(() => {
-      api
-        .getUserInfo()
-        .then((res) => {
-          setCurrentUser(res);
-        })
-        .catch(console.log);
-  
-      api
-        .getCardList()
-        .then((res) => {
-          setCards(res);
-        })
-        .catch(console.log);
-    }, []);
-   */
   function handleEditAvatarClick() {
     setIsEditAvatarPopupOpen(true);
   }
