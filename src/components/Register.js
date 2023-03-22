@@ -1,21 +1,17 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
-function Register({ onSubmit }) {
+function Register({ onRegister }) {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-    const [confirmPassword, setConfirmPassword] = useState("");
 
-    const handleSubmit = (e) => {
+    const handleRegister = (e) => {
         e.preventDefault();
-        if (password === confirmPassword) {
-            onSubmit()
-        }
+        onRegister(email, password)
     }
 
     return (
         <div className="register">
-
             <form className="register__form">
                 <h3 className="register__welcome">
                     Sign up
@@ -27,7 +23,7 @@ function Register({ onSubmit }) {
                 <input name="password" type="password" id="password-input" className="register__input" placeholder="Password" value={password}
                     onChange={e => setPassword(e.target.value)} />
                 <div className="register__button-container">
-                    <button onClick={handleSubmit} className="register__link">Sign up</button>
+                    <button onClick={handleRegister} className="register__link">Sign up</button>
                 </div>
             </form>
 
