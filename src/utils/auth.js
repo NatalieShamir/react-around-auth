@@ -16,7 +16,6 @@ export const signup = (email, password) => {
         .then((res) => {
             return res;
         })
-        .catch((err) => console.log(err));
 }
 
 export const signin = (password, email) => {
@@ -36,7 +35,6 @@ export const signin = (password, email) => {
                 return;
             }
         })
-        .catch((err) => console.log(err));
 }
 
 export const checkToken = (token) => {
