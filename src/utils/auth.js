@@ -1,3 +1,5 @@
+import { response } from "express";
+
 export const BASE_URL = "https://register.nomoreparties.co"
 
 export const signup = (email, password) => {
@@ -12,6 +14,7 @@ export const signup = (email, password) => {
             if (response.status === 201) {
                 return response.json();
             }
+            return Promise.reject(`Error ${response.status}`);
         })
         .then((res) => {
             return res;
@@ -26,7 +29,12 @@ export const signin = (password, email) => {
         },
         body: JSON.stringify({ email, password })
     })
-        .then((response) => response.json())
+        .then((response) => {
+            if (response.ok) {
+                return response.json();
+            }
+            return Promise.reject(`Error ${response.status}`);
+        })
         .then((data) => {
             if (data.token) {
                 localStorage.setItem("token", data.token);
