@@ -1,5 +1,3 @@
-import { response } from "express";
-
 export const BASE_URL = "https://register.nomoreparties.co"
 
 export const signup = (email, password) => {
