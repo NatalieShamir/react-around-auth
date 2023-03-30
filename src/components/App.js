@@ -38,8 +38,8 @@ function App() {
   const [isSuccessful, setIsSuccessful] = React.useState(true);
   const history = useHistory();
 
-  function register(email, password) {
-    auth.signup(email, password)
+  function register(password, email) {
+    auth.signup(password, email)
       .then(res => {
         setIsInfoTooltipOpen(true);
 
@@ -59,8 +59,8 @@ function App() {
       })
   }
 
-  function login(email, password) {
-    auth.signin(email, password)
+  function login(password, email) {
+    auth.signin(password, email)
       .then(res => {
         if (res.token) {
           setIsLoggedIn(true)
