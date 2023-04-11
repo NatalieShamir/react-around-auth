@@ -38,8 +38,8 @@ function App() {
   const [isSuccessful, setIsSuccessful] = React.useState(true);
   const history = useHistory();
 
-  function register(password, email) {
-    auth.signup(password, email)
+  function register(email, password) {
+    auth.signup(email, password)
       .then(res => {
         setIsInfoTooltipOpen(true);
 
@@ -59,8 +59,8 @@ function App() {
       })
   }
 
-  function login(password, email) {
-    auth.signin(password, email)
+  function login(email, password) {
+    auth.signin(email, password)
       .then(res => {
         if (res.token) {
           setIsLoggedIn(true)
@@ -77,6 +77,25 @@ function App() {
         setIsInfoTooltipOpen(true);
       })
   }
+
+  useEffect(() => {
+    if (!isLoggedIn) {
+      return
+    }
+    api
+      .getUserInfo()
+      .then((res) => {
+        setCurrentUser(res);
+      })
+      .catch(console.log);
+
+    api
+      .getCardList()
+      .then((res) => {
+        setCards(res);
+      })
+      .catch(console.log);
+  }, [isLoggedIn]);
 
   function signOut() {
     localStorage.removeItem("token")
@@ -97,25 +116,6 @@ function App() {
         })
     }
   }, [])
-
-  useEffect(() => {
-    if (!isLoggedIn) {
-      return
-    }
-    api
-      .getUserInfo()
-      .then((res) => {
-        setCurrentUser(res);
-      })
-      .catch(console.log);
-
-    api
-      .getCardList()
-      .then((res) => {
-        setCards(res);
-      })
-      .catch(console.log);
-  }, [isLoggedIn]);
 
 
   function handleEditAvatarClick() {
