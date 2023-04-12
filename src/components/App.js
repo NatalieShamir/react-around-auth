@@ -232,7 +232,7 @@ function App() {
   return (
     <UserContext.Provider value={currentUser}>
       <div className="page">
-        <Header loggedIn={isLoggedIn} text="Sign up" path="/signup" email={email} onSignOut={signOut}
+        <Header isLoggedIn={isLoggedIn} text="Sign up" path="/signup" email={email} onSignOut={signOut}
         />
         <Switch>
           <Route path="/signup"><Register onRegister={register} /></Route>
