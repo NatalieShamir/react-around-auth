@@ -4,7 +4,6 @@
 
 - Project Description
 - Technologies and Techniques Used
-- GitHub Link
 
 **Project Description**
 
@@ -12,4 +11,5 @@ This project is a responsive website, designed to be displayed on most popular s
 
 **Technologies and Techniques Used**
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+- CSS
+- React
