@@ -65,7 +65,7 @@ function App() {
         if (res.token) {
           setIsLoggedIn(true)
           setEmail(email)
-          localStorage.setItem("token", res.token)
+          localStorage.setItem("jwt", res.token)
           history.push("/")
         } else {
           setIsSuccessful("fail");
@@ -98,14 +98,14 @@ function App() {
   }, [isLoggedIn]);
 
   function signOut() {
-    localStorage.removeItem("token")
+    localStorage.removeItem("jwt")
     setIsLoggedIn(false)
     setEmail("")
     history.push("/signin")
   }
 
   useEffect(() => {
-    const token = localStorage.getItem("token")
+    const token = localStorage.getItem("jwt")
 
     if (token) {
       auth.checkToken(token)

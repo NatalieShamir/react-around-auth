@@ -84,7 +84,7 @@ class Api {
 export const api = new Api({
   baseUrl: "https://around.nomoreparties.co/v1/cohort-3-en",
   headers: {
-    authorization: `Bearer ${localStorage.getItem("token")}`,
+    Authorization: `Bearer ${localStorage.getItem("jwt")}`,
     "Content-Type": "application/json",
   },
 });
