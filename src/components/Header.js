@@ -16,9 +16,9 @@ export default function Header({ isLoggedIn, email, onSignOut }) {
 
       <div className="header__container">
         {isLoggedIn ? (
-          <div>
+          <div className="header__container-items">
             <p className="header__email">{email}</p>
-            <div className="header__text" onClick={onSignOut}>Log out</div>
+            <p className="header__text" onClick={onSignOut}>Log out</p>
           </div>
         ) : (
           <div>
