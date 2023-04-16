@@ -14,7 +14,7 @@ function InfoTooltip({ isOpen, onClose, isSuccessful }) {
                     aria-label="close"
                     className="popup__close-button"
                 ></button>
-                {isSuccessful === "successful" ? (
+                {isSuccessful === "success" ? (
                     <div className="popup__tooltip-info">
                         <img className="popup__tooltip-image" src={registrationSuccess} alt="A tick symbol" />
                         <p className="popup__tooltip-status">Success! You have been registered.</p>
