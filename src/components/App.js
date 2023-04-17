@@ -79,6 +79,25 @@ function App() {
   }
 
   useEffect(() => {
+    tokenCheck()
+  })
+
+  function tokenCheck() {
+    const jwt = localStorage.getItem('jwt');
+    if (jwt) {
+      auth.getContent(jwt)
+        .then((res) => {
+          if (res) {
+            setIsLoggedIn(true);
+            history.push("/")
+          }
+        })
+    }
+  }
+
+
+
+  useEffect(() => {
     if (!isLoggedIn) {
       return
     }
@@ -87,14 +106,14 @@ function App() {
       .then((res) => {
         setCurrentUser(res);
       })
-      .catch(console.log);
+      .catch((err) => console.log(err))
 
     api
       .getCardList()
       .then((res) => {
         setCards(res);
       })
-      .catch(console.log);
+      .catch((err) => console.log(err))
   }, [isLoggedIn]);
 
   function signOut() {
@@ -114,6 +133,7 @@ function App() {
           setCurrentUser({ _id, email })
           history.push("/")
         })
+        .catch((err) => console.log(err))
     }
   }, [])
 
@@ -163,7 +183,7 @@ function App() {
         setCurrentUser(res);
         closeAllPopups();
       })
-      .catch(console.log)
+      .catch((err) => console.log(err))
       .finally(() => {
         setIsEditProfileProcessing(false);
       });
@@ -176,7 +196,7 @@ function App() {
         setCurrentUser({ ...currentUser, avatar: res.avatar });
         closeAllPopups();
       })
-      .catch(console.log);
+      .catch((err) => console.log(err))
   }
 
   function handleCardLike(card) {
@@ -191,7 +211,7 @@ function App() {
           });
           setCards(newCards);
         })
-        .catch(console.log);
+        .catch((err) => console.log(err))
     } else {
       api
         .addLike(card._id)
@@ -201,7 +221,7 @@ function App() {
           });
           setCards(newCards);
         })
-        .catch(console.log);
+        .catch((err) => console.log(err))
     }
   }
 
@@ -212,7 +232,7 @@ function App() {
         const newCards = cards.filter((item) => item._id !== card._id);
         setCards(newCards);
       })
-      .catch(console.log);
+      .catch((err) => console.log(err))
   }
 
   function handleAddPlaceSubmit(name, url) {
@@ -223,7 +243,7 @@ function App() {
         setCards([res, ...cards]);
         closeAllPopups();
       })
-      .catch(console.log)
+      .catch((err) => console.log(err))
       .finally(() => {
         setIsAddCardProcessing(false);
       });
