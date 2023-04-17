@@ -130,7 +130,7 @@ function App() {
       auth.checkToken(token)
         .then(res => {
           const { data: { _id, email } } = res
-          setCurrentUser({ _id, email })
+          setEmail({ _id, email })
           history.push("/")
         })
         .catch((err) => console.log(err))
