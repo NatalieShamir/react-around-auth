@@ -95,8 +95,6 @@ function App() {
     }
   }
 
-
-
   useEffect(() => {
     if (!isLoggedIn) {
       return
