@@ -69,13 +69,14 @@ function App() {
           history.push("/")
         } else {
           setIsSuccessful("fail");
-          setIsInfoTooltipOpen(true);
         }
       })
       .catch((err) => {
         setIsSuccessful("fail");
-        setIsInfoTooltipOpen(true);
       })
+      .finally(() => {
+        setIsInfoTooltipOpen(true);
+      });
   }
 
   useEffect(() => {
