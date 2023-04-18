@@ -41,8 +41,6 @@ function App() {
   function register(email, password) {
     auth.signup(email, password)
       .then(res => {
-        setIsInfoTooltipOpen(true);
-
         if (res.data._id) {
           setIsSuccessful("success");
           setTimeout(() => {
@@ -55,8 +53,10 @@ function App() {
       })
       .catch((err) => {
         setIsSuccessful("fail");
-        setIsInfoTooltipOpen(true);
       })
+      .finally(() => {
+        setIsInfoTooltipOpen(true);
+      });
   }
 
   function login(email, password) {
@@ -127,8 +127,8 @@ function App() {
     if (token) {
       auth.checkToken(token)
         .then(res => {
-          const { data: { _id, email } } = res
-          setEmail({ _id, email })
+          const { data: { email } } = res
+          setEmail(email)
           history.push("/")
         })
         .catch((err) => console.log(err))
@@ -303,6 +303,8 @@ function App() {
       </div>
     </UserContext.Provider >
   );
+
 }
+
 
 export default App;
