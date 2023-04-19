@@ -74,9 +74,6 @@ function App() {
       .catch((err) => {
         setIsSuccessful("fail");
       })
-      .finally(() => {
-        setIsInfoTooltipOpen(true);
-      });
   }
 
   useEffect(() => {
@@ -113,6 +110,7 @@ function App() {
         .then(res => {
           const { data: { email } } = res
           setEmail(email)
+          setIsLoggedIn(true);
           history.push("/")
         })
         .catch((err) => console.log(err))
