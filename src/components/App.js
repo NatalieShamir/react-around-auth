@@ -80,23 +80,6 @@ function App() {
   }
 
   useEffect(() => {
-    tokenCheck()
-  })
-
-  function tokenCheck() {
-    const jwt = localStorage.getItem('jwt');
-    if (jwt) {
-      auth.getContent(jwt)
-        .then((res) => {
-          if (res) {
-            setIsLoggedIn(true);
-            history.push("/")
-          }
-        })
-    }
-  }
-
-  useEffect(() => {
     if (!isLoggedIn) {
       return
     }
